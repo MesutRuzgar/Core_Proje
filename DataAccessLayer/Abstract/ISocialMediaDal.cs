@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface ISkillDal:IGenericDal<Skill>
+    public interface ISocialMediaDal :IGenericDal<SocialMedia>
     {
-        
     }
 }

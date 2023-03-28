@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstract
 {
-    public interface ISkillDal:IGenericDal<Skill>
+    public interface IExperienceDal : IGenericDal<Experience>
     {
-        
+       
     }
 }
