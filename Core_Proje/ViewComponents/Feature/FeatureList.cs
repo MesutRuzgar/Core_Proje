@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,10 +10,15 @@ namespace Core_Proje.ViewComponents.Feature
 {
     public class FeatureList : ViewComponent
     {
+        //buranın amacı bir feature nesnesi türetmek ve ef ile DAL newlemiş olduk
+        FeatureManager featureManager = new FeatureManager(new EfFeatureDal());
+
         //viewcomponentresult lar genel olarak Invoke olarak isimlendirilir
         public IViewComponentResult Invoke()
         {
-            return View();
+            //bir values adında degisken olusturup TGetList olarak cagirdik ve return da degiskeni dondurduk
+            var values = featureManager.TGetList();
+            return View(values);
 
         }
         //Yukarıda ki kodları yazınca FeatureList adını kopyala. Solutiıon da bulunan
