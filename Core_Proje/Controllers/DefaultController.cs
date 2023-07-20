@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,5 +36,28 @@ namespace Core_Proje.Controllers
         {
             return NavbarPartial();
         }
+
+
+        //mesaj gonderme islemleri icin yaptık yeni partialleri olusturduk
+        [HttpGet]
+        public PartialViewResult SendMessage()
+        {
+            return PartialView();
+        }
+
+
+        //sendmessageye sag tiklayip wiew ekliyoruz, razor view, SendMessage isimli
+        [HttpPost]
+        public PartialViewResult SendMessage(Message p)
+        {
+            MessageManager messageManager = new MessageManager(new EfMessageDal());
+            //mesaji gonderdigimiz tarih db ye kayıt olsun istedik
+            p.Date = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+            //durumu aktif yani okunmadi. okudugumuzda false olacak ileride
+            p.Status = true;
+            messageManager.TAdd(p);
+            return PartialView();
+        }
+
     }
 }
