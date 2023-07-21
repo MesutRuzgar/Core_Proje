@@ -46,5 +46,26 @@ namespace Core_Proje.Controllers
         }
 
 
+        //buranın amacı güncelleme sayfasına admini aktarmak
+        [HttpGet]
+        //view ekliyoruz ve layouta bagli olarak calısacak
+        public IActionResult EditSkill(int id)
+        {
+            ViewBag.d1 = "Yetenek Güncelleme";
+            ViewBag.d2 = "Yetenekler";
+            ViewBag.d3 = "Yetenek Güncelleme";
+            var values = skillManager.TGetById(id);
+            return View(values);
+
+        }
+
+        //buranın amacı guncelleme sayfasındaki verileri db ye gondermek
+        [HttpPost]
+        public IActionResult EditSkill(Skill skill)
+        {
+            skillManager.TUpdate(skill);
+            return RedirectToAction("Index");
+        }
+
     }
 }
