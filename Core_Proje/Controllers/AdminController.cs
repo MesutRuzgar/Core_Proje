@@ -12,5 +12,7 @@ namespace Core_Proje.Controllers
         {
             return PartialView();
         }
+
+
     }
 }

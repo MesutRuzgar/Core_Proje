@@ -8,8 +8,9 @@
 
 
 
-<div class="card-header border-0">
-    <h3 class="mb-0">Yetenek Listesi Tablosu</h3>
+<div class="card-header border-0 d-flex align-items-center">
+    <h3 class="mb-0 mr-auto">Yetenek Listesi Tablosu</h3>
+    <th><a href="#" class="btn btn-success">Yetenek Ekle</a></th>
 </div>
 <!-- Light table -->
 <div class="table-responsive">
@@ -21,34 +22,35 @@
                 <th scope="col" class="sort" data-sort="status">İlerleme</th>
                 <th scope="col">Sil</th>
                 <th scope="col" class="sort" data-sort="completion">Düzenle</th>
-                <th scope="col"></th>
+                
             </tr>
         </thead>
         <tbody class="list">
             @foreach (var item in Model)
             {
-            <tr>
-                <td>
-                    @item.SkillId
-                </td>
-                <td class="budget">
-                    @item.Title
-                </td>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <span class="completion mr-2">@item.Value%</span>
-                        <div>
-                            <div class="progress">
-                                <div class="progress-bar bg-green" role="progressbar" aria-valuenow="@item.Value" aria-valuemin="0" aria-valuemax="100" style="width: @item.Value%;"></div>
+                <tr>
+                    <td>
+                        @item.SkillId
+                    </td>
+                    <td class="budget">
+                        @item.Title
+                    </td>
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <span class="completion mr-2">@item.Value%</span>
+                            <div>
+                                <div class="progress">
+                                    <div class="progress-bar bg-green" role="progressbar" aria-valuenow="@item.Value" aria-valuemin="0" aria-valuemax="100" style="width: @item.Value%;"></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                <td> <a href="#" class="btn btn-danger">Sil</a></td>
-                <td> <a href="#" class="btn btn-warning">Güncelle</a></td>
-                </td>
-            </tr>
+                    <td> <a href="#" class="btn btn-youtube">Sil</a></td>
+                    <td> <a href="#" class="btn btn-info">Güncelle</a></td>
+
+                </tr>
             }
         </tbody>
     </table>
+
 </div>
 
