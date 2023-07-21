@@ -38,5 +38,13 @@ namespace Core_Proje.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult DeleteSkill(int id)
+        {
+            var values = skillManager.TGetById(id);
+            skillManager.TDelete(values);
+            return RedirectToAction("Index");
+        }
+
+
     }
 }

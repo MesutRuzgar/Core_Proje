@@ -21,7 +21,7 @@ namespace DataAccessLayer.Repository
         {
             using var c = new Context();
             //c bir veritabanı nesnesi, T ise bulunacak kaydın tipidir. Set<T>() metodu, T tipindeki nesnelerin bulunduğu bir DbSet nesnesi döndürür.
-            return c.Set<T>().Find();
+            return c.Set<T>().Find(id);
         }
 
         public List<T> GetList()
