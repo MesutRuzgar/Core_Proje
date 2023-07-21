@@ -13,6 +13,17 @@ namespace Core_Proje.Controllers
             return PartialView();
         }
 
+        //footer bolumu icin
+        public PartialViewResult PartialFooter()
+        {
+            return PartialView();
+        }
+
+        //navbar icin
+        public PartialViewResult PartialNavbar()
+        {
+            return PartialNavbar();
+        }
 
     }
 }
