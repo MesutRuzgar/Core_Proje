@@ -31,7 +31,10 @@ namespace Core_Proje.Controllers
             return PartialHead();
         }
 
-        
-
+        //scripts
+        public PartialViewResult PartialScript()
+        {
+            return PartialScript();
+        }
     }
 }
