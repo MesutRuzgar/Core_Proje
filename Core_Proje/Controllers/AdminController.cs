@@ -25,5 +25,13 @@ namespace Core_Proje.Controllers
             return PartialNavbar();
         }
 
+        //header
+        public PartialViewResult PartialHead()
+        {
+            return PartialHead();
+        }
+
+        
+
     }
 }
