@@ -36,5 +36,11 @@ namespace Core_Proje.Controllers
         {
             return PartialScript();
         }
+
+        //head kısmında bulunan sayfa isimlerini dinamik olarak almak icin olusturduk
+        public PartialViewResult NavigationPartial()
+        {
+            return PartialView();
+        }
     }
 }
