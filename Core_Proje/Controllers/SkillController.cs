@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +10,14 @@ namespace Core_Proje.Controllers
 {
     public class SkillController : Controller
     {
+        SkillManager skillManager = new SkillManager(new EfSkillDal());
         public IActionResult Index()
         {
-            return View();
+            var values = skillManager.TGetList();
+            return View(values);
         }
+
+
+
     }
 }
