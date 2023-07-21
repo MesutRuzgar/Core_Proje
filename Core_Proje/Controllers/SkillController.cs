@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,19 @@ namespace Core_Proje.Controllers
             return View(values);
         }
 
+        [HttpGet]
+        public IActionResult AddSkill()
+        {
+            return View();
+        }
 
+        [HttpPost]
+        public IActionResult AddSkill(Skill skill)
+        {
+            skillManager.TAdd(skill);
+            //ekleme islemini gerceklestirip indexe aktar beni dedik
+            return RedirectToAction("Index");
+        }
 
     }
 }

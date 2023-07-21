@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewData["Title"] = "AddSkill";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>AddSkill</h1>
+
+@*method kısmı sayfada bir post isteği olduğunda işlemin gerceklesmesini istedigimizi sart kosuyor*@
+
+<br />
+<br />
+<form method="post">
+    <div class="form-group">
+        <label>Yetenek Başlığı</label>
+        <input type="text" name="Title" class="form-control" placeholder="Yetenek Giriniz"/>
+    </div>
+    <div class="form-group">
+        <label>İlerleme</label>
+        <input type="text" name="Value" class="form-control"  placeholder="%">
+    </div>    
+    <button type="submit" class="btn btn-success">Kaydet</button>
+</form>
