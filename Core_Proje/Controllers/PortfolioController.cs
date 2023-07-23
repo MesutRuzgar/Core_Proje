@@ -53,5 +53,13 @@ namespace Core_Proje.Controllers
             
         }
 
+        public IActionResult DeletePortfolio(int id)
+        {
+            var values = portfolioManager.TGetById(id);
+            portfolioManager.TDelete(values);
+            return RedirectToAction("Index");
+        }
+
+
     }
 }

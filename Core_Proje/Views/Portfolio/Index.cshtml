@@ -23,59 +23,62 @@
                         <th scope="col">Görseller</th>
                         <th scope="col" class="sort" data-sort="completion">İlerleme</th>
                         <th scope="col"></th>
+                        <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody class="list">
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <th scope="row">
-                                <div class="media align-items-center">
-                                    <a href="#" class="avatar rounded-circle mr-3">
-                                        <img alt="Image placeholder" src="@item.Platform">
-                                    </a>
-                                    <div class="media-body">
-                                        <span class="name mb-0 text-sm">@item.Name</span>
+                    <tr>
+                        <th scope="row">
+                            <div class="media align-items-center">
+                                <a href="#" class="avatar rounded-circle mr-3">
+                                    <img alt="Image placeholder" src="@item.Platform">
+                                </a>
+                                <div class="media-body">
+                                    <span class="name mb-0 text-sm">@item.Name</span>
+                                </div>
+                            </div>
+                        </th>
+                        <td class="budget">
+                            @item.Price
+                        </td>
+                        <td>
+                            <span class="badge badge-dot mr-4">
+                                <i class="bg-success"></i>
+                                <span class="status">Tamamlandı</span>
+                            </span>
+                        </td>
+                        <td>
+                            <div class="avatar-group">
+                                <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip">
+                                    <img alt="Image placeholder" src="~/argon-dashboard-master/assets/img/theme/team-1.jpg">
+                                </a>
+                                <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Romina Hadid">
+                                    <img alt="Image placeholder" src="~/argon-dashboard-master/assets/img/theme/team-2.jpg">
+                                </a>
+                                <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Alexander Smith">
+                                    <img alt="Image placeholder" src="~/argon-dashboard-master/assets/img/theme/team-3.jpg">
+                                </a>
+                                <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Jessica Doe">
+                                    <img alt="Image placeholder" src="~/argon-dashboard-master/assets/img/theme/team-4.jpg">
+                                </a>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <span class="completion mr-2">@item.Value%</span>
+                                <div>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: @item.Value%;"></div>
                                     </div>
                                 </div>
-                            </th>
-                            <td class="budget">
-                                @item.Price
-                            </td>
-                            <td>
-                                <span class="badge badge-dot mr-4">
-                                    <i class="bg-success"></i>
-                                    <span class="status">Tamamlandı</span>
-                                </span>
-                            </td>
-                            <td>
-                                <div class="avatar-group">
-                                    <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip">
-                                        <img alt="Image placeholder" src="~/argon-dashboard-master/assets/img/theme/team-1.jpg">
-                                    </a>
-                                    <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Romina Hadid">
-                                        <img alt="Image placeholder" src="~/argon-dashboard-master/assets/img/theme/team-2.jpg">
-                                    </a>
-                                    <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Alexander Smith">
-                                        <img alt="Image placeholder" src="~/argon-dashboard-master/assets/img/theme/team-3.jpg">
-                                    </a>
-                                    <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Jessica Doe">
-                                        <img alt="Image placeholder" src="~/argon-dashboard-master/assets/img/theme/team-4.jpg">
-                                    </a>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <span class="completion mr-2">@item.Value%</span>
-                                    <div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: @item.Value%;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
+                            </div>
+                        </td>
+                        <td> <a href="/Portfolio/DeletePortfolio/@item.PortfolioId" class="btn btn-youtube">Sil</a></td>
+                        <td> <a href="/Portfolio/EditPortfolio/@item.PortfolioId" class="btn btn-info">Güncelle</a></td>
 
-                        </tr>
+                    </tr>
                     }
 
                 </tbody>
