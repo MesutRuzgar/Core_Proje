@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewData["Title"] = "AddPortfolio";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-header border-0 d-flex align-items-center">
+    <h3 class="mb-0 mr-auto">Proje Ekleme Sayfası</h3>
+</div>
+<br />
+<form method="post">
+    <div class="form-group">
+        <label>Proje</label>
+        <input type="text" name="Name" class="form-control" placeholder="Proje Adı Giriniz" />
+    </div>
+    <div class="form-group">
+        <label>Küçük Resim</label>
+        <input type="text" name="ImageUrl" class="form-control" placeholder="Cv sayfasında görünecek resim">
+    </div>
+    <div class="form-group">
+        <label>Büyük Resim</label>
+        <input type="text" name="ImageUrl" class="form-control" placeholder="Cv sayfasında tıklanıldığında açılacak resim">
+    </div>
+    <div class="form-group">
+        <label>Proje Adresi</label>
+        <input type="text" name="ProjectUrl" class="form-control" placeholder="Projeye ait link">
+    </div>
+    <div class="form-group">
+        <label>Ücret</label>
+        <input type="text" name="Price" class="form-control" placeholder="Projeye ücreti, Örn. $2000 USD">
+    </div>
+    <div class="form-group">
+        <label>İlerleme (%)</label>
+        <input type="text" name="Value" class="form-control" placeholder="Örn. 65">
+    </div>
+
+    <button type="submit" class="btn btn-success">Kaydet</button>
+    <a href="/Portfolio" class="btn btn-youtube">İptal</a>
+</form>
+
