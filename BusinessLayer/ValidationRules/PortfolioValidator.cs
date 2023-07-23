@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.ValidationRules
 {
-   public class PortfolioValidator : AbstractValidator<Portfolio>
+    public class PortfolioValidator : AbstractValidator<Portfolio>
     {
         public PortfolioValidator()
         {
