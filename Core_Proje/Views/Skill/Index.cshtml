@@ -3,7 +3,7 @@
 
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
 
@@ -40,13 +40,12 @@
                             <span class="completion mr-2">@item.Value%</span>
                             <div>
                                 <div class="progress">
-                                    <div class="progress-bar bg-green" role="progressbar" aria-valuenow="@item.Value" aria-valuemin="0" aria-valuemax="100" style="width: @item.Value%;"></div>
+                                    <div class="progress-bar bg-green" role="progressbar" aria-valuenow="@item.Value" aria-valuemin="0" aria-valuemax="100" style="width: @item.Value%"></div>
                                 </div>
                             </div>
                         </div>
                     <td> <a href="/Skill/DeleteSkill/@item.SkillId" class="btn btn-youtube">Sil</a></td>
                     <td> <a href="/Skill/EditSkill/@item.SkillId" class="btn btn-info">Güncelle</a></td>
-
                 </tr>
             }
         </tbody>
