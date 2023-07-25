@@ -1,31 +1,39 @@
 ﻿
 @{
     ViewData["Title"] = "AddExperience";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
-<div class="card-header border-0 d-flex align-items-center">
-    <h3 class="mb-0 mr-auto">Deneyim Ekleme Sayfası</h3>
-</div>
-<br />
 <form method="post">
-    <div class="form-group">
-        <label>Deneyim Başlığı</label>
-        <input type="text" name="Name" class="form-control" placeholder="Deneyim Adı Giriniz" />
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Deneyim Ekleme</h4>
+            <form class="forms-sample">
+                <div class="form-group">
+                    <label for="exampleInputName1">Başlık</label>
+                    <input type="text" class="form-control" name="Name" placeholder="Deneyim Adı Giriniz">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Tarih</label>
+                    <input type="text" class="form-control" name="Date" placeholder="Örn. Veri Tabanı (2021-2023)">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword4">Resim Yolu</label>
+                    <input type="text" class="form-control" name="ImageUrl" >
+                </div>
+                <div class="form-group">
+                    <label for="exampleSelectGender">Açıklama</label>
+                    <input type="text" class="form-control" name="Description" placeholder="Kısaca özetleyeniz.">
+                        
+                </div>        
+                
+                <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+                <button href="/Experience" class="btn btn-dark">İptal</button>
+            </form>
+        </div>
     </div>
-    <div class="form-group">
-        <label>Tarih</label>
-        <input type="text" name="Date" class="form-control" placeholder="Örn. Veri Tabanı (2021-2023)">
-    </div>
-    <div class="form-group">
-        <label>Resim Yolu</label>
-        <input type="text" name="ImageUrl" class="form-control" >
-    </div>
-    <div class="form-group">
-        <label>Açıklama</label>
-        <input type="text" name="Description" class="form-control" placeholder="Kısaca özetleyeniz.">
-    </div>
-    <button type="submit" class="btn btn-success">Kaydet</button>
-    <a href="/Experience" class="btn btn-youtube">İptal</a>
+</div>
+ 
 </form>
 
