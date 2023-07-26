@@ -8,19 +8,23 @@
 
 @*method kısmı sayfada bir post isteği olduğunda işlemin gerceklesmesini istedigimizi sart kosuyor*@
 
-<div class="card-header border-0 d-flex align-items-center">
-<h3 class="mb-0 mr-auto">Yetenek Ekleme Sayfası</h3>
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Yetenek Ekleme</h4>
+            <form method="post" class="forms-sample">
+                <div class="form-group">
+                    <label for="exampleInputName1">Yetenek Başlığı</label>
+                    <input type="text" class="form-control" name="Title" placeholder="Yetenek Giriniz">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">İlerleme (%)</label>
+                    <input type="text" class="form-control" name="Value" placeholder="Örn. 65">
+                </div>                              
+
+                <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+                <button href="/Skill" class="btn btn-dark">İptal</button>
+            </form>
+        </div>
+    </div>
 </div>
-<br />
-<form method="post">
-    <div class="form-group">
-        <label>Yetenek Başlığı</label>
-        <input type="text" name="Title" class="form-control" placeholder="Yetenek Giriniz" />
-    </div>
-    <div class="form-group">
-        <label>İlerleme</label>
-        <input type="text" name="Value" class="form-control" placeholder="%">
-    </div>
-    <button type="submit" class="btn btn-success">Kaydet</button>
-    <a href="/Skill" class="btn btn-youtube">İptal</a>
-</form>
