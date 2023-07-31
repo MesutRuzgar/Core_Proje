@@ -14,8 +14,10 @@ namespace Core_Proje.ViewComponents.Dashboard
 
         public IViewComponentResult Invoke()
         {
-            var values = portfolioManager.TGetList();
+            var values = portfolioManager.TGetList();       
+
             return View(values);
+          
         }
 
     }
