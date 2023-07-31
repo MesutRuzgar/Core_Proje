@@ -8,17 +8,17 @@ using System.Threading.Tasks;
 
 namespace Core_Proje.ViewComponents.Dashboard
 {
-    public class Last5Projects : ViewComponent
+    public class ProjectList :ViewComponent
+
     {
         PortfolioManager portfolioManager = new PortfolioManager(new EfPortfolioDal());
 
         public IViewComponentResult Invoke()
         {
-            var values = portfolioManager.TGetList().OrderByDescending(x=>x.PortfolioId).Take(5).ToList();       
+            var values = portfolioManager.TGetList();
 
             return View(values);
-          
-        }
 
+        }
     }
 }
