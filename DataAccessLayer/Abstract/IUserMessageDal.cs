@@ -9,5 +9,7 @@ namespace DataAccessLayer.Abstract
 {
     public interface IUserMessageDal : IGenericDal<UserMessage>
     {
+        //kullanici mesajlarini kullanicilar ile birlikte getirmek icin kodladik
+        public List<UserMessage> GetUserMessagesWithUser();
     }
 }
