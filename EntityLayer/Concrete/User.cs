@@ -18,5 +18,8 @@ namespace EntityLayer.Concrete
         public int Password { get; set; }
         public string ImageUrl { get; set; }
         public bool Status { get; set; }
+
+        //tablo iliskilendirmesi icin
+        public List<UserMessage> UserMessages { get; set; }
     }
 }
