@@ -15,7 +15,7 @@ namespace Core_Proje.ViewComponents.Dashboard
 
         public IViewComponentResult Invoke()
         {
-            var values = toDoListManager.TGetList();
+            var values = toDoListManager.TGetList().OrderByDescending(x => x.Id).Take(5).ToList();
 
             return View(values);
 
