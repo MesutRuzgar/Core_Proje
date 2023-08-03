@@ -52,6 +52,16 @@ namespace Core_Proje
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+            //areanýn calismasi icin buraye ekledik
+            //ScaffoldingReadMe bu txt dosyasinda otomatik olarak kod geliyor
+            //Home yerine default yaptik bizde home yok cunku
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                  name: "areas",
+                  pattern: "{area:exists}/{controller=Default}/{action=Index}/{id?}"
+                );
+            });
         }
     }
 }
