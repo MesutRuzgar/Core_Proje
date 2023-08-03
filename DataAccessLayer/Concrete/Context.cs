@@ -12,6 +12,7 @@ namespace DataAccessLayer.Concrete
     //public class Context : DbContext
     
     //Identity kurduğumuz icin db context degistirdik
+    //identitydbcontext dbcontext ten miras alır. dbcontextin yaptigi her isi yapar kisaca
     public class Context : IdentityDbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
