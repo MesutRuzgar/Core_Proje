@@ -2,7 +2,7 @@
 
 namespace DataAccessLayer.Migrations
 {
-    public partial class mig_role_user_context2 : Migration
+    public partial class mig_test : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
