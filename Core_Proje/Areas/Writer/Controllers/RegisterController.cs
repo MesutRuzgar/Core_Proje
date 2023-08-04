@@ -1,4 +1,5 @@
-﻿using EntityLayer.Concrete;
+﻿using Core_Proje.Areas.Writer.Models;
+using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -16,8 +17,9 @@ namespace Core_Proje.Areas.Writer.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Index(User u)
+        public IActionResult Index(UserRegisterViewModel p)
         {
+           
             return View();
         }
     }
