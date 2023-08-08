@@ -29,7 +29,7 @@ namespace Core_Proje.Areas.Writer.Controllers
 
         [HttpPost]
         //async method kullandiğimiz icin async yaptik burayida
-        public  async Task<IActionResult> Index(UserRegisterViewModel p)
+        public async Task<IActionResult> Index(UserRegisterViewModel p)
         {
             if (ModelState.IsValid)
             {
@@ -44,24 +44,28 @@ namespace Core_Proje.Areas.Writer.Controllers
                 };
                 //async değere atatık createasync ise yeni bir hesap olusturmak icin identity
                 //kutuphanesinden yararlanındı
-                var result = await _userManager.CreateAsync(w, p.Password);
+                if (p.ConfrimPassword == p.Password)
+                {
+                    var result = await _userManager.CreateAsync(w, p.Password);
 
-                if (result.Succeeded && p.ConfrimPassword==p.Password)
-                {
-                    //basarili olursa login e yonlendiriyoruz
-                    return RedirectToAction("Index", "Login");
-                }
-                else
-                {
-                    foreach(var item in result.Errors)
+
+                    if (result.Succeeded)
                     {
-                        //yanlıs olursa hata aciklamasini göster dedik
-                        ModelState.AddModelError(string.Empty, item.Description);
+                        //basarili olursa login e yonlendiriyoruz
+                        return RedirectToAction("Index", "Login");
                     }
-                }
+                    else
+                    {
+                        foreach (var item in result.Errors)
+                        {
+                            //yanlıs olursa hata aciklamasini göster dedik
+                            ModelState.AddModelError(string.Empty, item.Description);
+                        }
+                    }
 
+                }
             }
-         
+
             return View();
         }
     }
