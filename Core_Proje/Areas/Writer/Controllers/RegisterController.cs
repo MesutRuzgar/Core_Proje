@@ -46,7 +46,7 @@ namespace Core_Proje.Areas.Writer.Controllers
                 //kutuphanesinden yararlanındı
                 var result = await _userManager.CreateAsync(w, p.Password);
 
-                if (result.Succeeded)
+                if (result.Succeeded && p.ConfrimPassword==p.Password)
                 {
                     //basarili olursa login e yonlendiriyoruz
                     return RedirectToAction("Index", "Login");
