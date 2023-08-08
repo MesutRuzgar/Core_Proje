@@ -56,7 +56,7 @@ namespace Core_Proje.Areas.Writer.Controllers
                     foreach(var item in result.Errors)
                     {
                         //yanlıs olursa hata aciklamasini göster dedik
-                        ModelState.AddModelError("", item.Description);
+                        ModelState.AddModelError(string.Empty, item.Description);
                     }
                 }
 

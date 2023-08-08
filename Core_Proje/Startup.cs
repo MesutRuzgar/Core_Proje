@@ -1,3 +1,4 @@
+using Core5BlogApp.Areas.Writer.Models;
 using DataAccessLayer.Concrete;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Builder;
@@ -26,7 +27,7 @@ namespace Core_Proje
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<Context>();
-            services.AddIdentity<WriterUser, WriterRole>().AddEntityFrameworkStores<Context>();
+            services.AddIdentity<WriterUser, WriterRole>().AddEntityFrameworkStores<Context>().AddErrorDescriber<TurkishIdentityErrorDescriber>();
             services.AddControllersWithViews();
         }
 
