@@ -1,4 +1,5 @@
-﻿using EntityLayer.Concrete;
+﻿using Core_Proje.Areas.Writer.Models;
+using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -18,8 +19,29 @@ namespace Core_Proje.Areas.Writer.Controllers
             _signInManager = signInManager;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Index(UserLoginViewModel p)
+        {
+            if (ModelState.IsValid)
+            {
+                //PasswordSignInAsync bu method login isleminin kontrolunu saglayacak
+                var result = await _signInManager.PasswordSignInAsync(p.Username, p.Password, true, true);
+                if (result.Succeeded)
+                {
+                    //yeni bir aksiyona yönlendir
+                    return RedirectToAction("Index", "Default");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Hatalı kullanıcı adı veya şifre");
+                }
+            }
             return View();
         }
     }
