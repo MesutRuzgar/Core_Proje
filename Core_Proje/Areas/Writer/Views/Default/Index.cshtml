@@ -21,6 +21,7 @@
                             <th>Başlık</th>
                             <th>Tarih</th>
                             <th>Tür</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -46,8 +47,9 @@
                             <tr>
                                 <td></td>
                                 <td>@item.Title</td>
-                                <td>@item.Date</td>
+                                <td>@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</td>
                                 <td><label class="@color">@item.Status</label></td>
+                                <td><a href="#" class="btn btn-outline-primary">Detaylar</a></td>
                             </tr>
                         }
                     </tbody>
