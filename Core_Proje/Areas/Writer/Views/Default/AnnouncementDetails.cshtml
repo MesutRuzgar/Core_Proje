@@ -1,0 +1,37 @@
+﻿@model EntityLayer.Concrete.Announcement
+
+@{
+    ViewData["Title"] = "AnnouncementDetails";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<body>
+    <div class="content-wrapper">
+        <div class="row justify-content-center">
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-title" style="font-size: 24px">@Model.Title</p>
+                        <br />
+                        <p class="font-weight-500" style="font-size: 15px; word-break:break-word">@Model.Content</p>
+                        <div class="text-right">
+                            <small><strong>@Model.Date.ToString("dd.MM.yyyy")</strong></small>
+                        </div>
+                        <br />
+                        <div style="text-align: right;">
+                            <a href="/Writer/Default/Index" class="btn btn-danger">Geri</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</body>
+
+</html>
