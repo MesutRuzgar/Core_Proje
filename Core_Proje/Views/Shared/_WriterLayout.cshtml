@@ -6,16 +6,16 @@
 <!DOCTYPE html>
 <html lang="en">
 
-@await Html.PartialAsync("HeadPartial")
+@await Html.PartialAsync("~/Areas/Writer/Views/Default/HeadPartial.cshtml")
 
 <body>
     <div class="container-scroller">
 
-        @await Html.PartialAsync("_NavbarPartial")
+        @await Html.PartialAsync("~/Areas/Writer/Views/Default/_NavbarPartial.cshtml")
 
         <div class="container-fluid page-body-wrapper">
 
-            @await Html.PartialAsync("_SidebarPartial")
+            @await Html.PartialAsync("~/Areas/Writer/Views/Default/_SidebarPartial.cshtml")
 
             <div class="main-panel">
                 <div class="content-wrapper">
@@ -25,7 +25,7 @@
                     </div>
                 </div>
 
-                @await Html.PartialAsync("_FooterPartial")
+                @await Html.PartialAsync("~/Areas/Writer/Views/Default/_FooterPartial.cshtml")
 
             </div>
 
@@ -33,7 +33,7 @@
 
     </div>
 
-    @await Html.PartialAsync("_ScriptsPartial")
+    @await Html.PartialAsync("~/Areas/Writer/Views/Default/_ScriptsPartial.cshtml")
 
 </body>
 
