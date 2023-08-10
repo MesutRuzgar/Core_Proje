@@ -1,4 +1,5 @@
-﻿
+﻿@model EntityLayer.Concrete.WriterUser
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
@@ -11,30 +12,30 @@
             <form class="forms-sample">
                 <div class="form-group">
                     <label for="exampleInputName1">Adınız</label>
-                    <input type="text" class="form-control" id="exampleInputName1" placeholder="Ad">
+                    <input type="text" name="@Model.Name" value="@Model.Name" class="form-control"  placeholder="Ad">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputName1">Soyadınız</label>
-                    <input type="text" class="form-control" id="exampleInputName1" placeholder="Soyad">
+                    <input type="text" class="form-control" name="@Model.Surname" value="@Model.Surname" placeholder="Soyad">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail3">Kayıtlı Mail Adresiniz</label>
-                    <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email" readonly>
+                    <input type="email" class="form-control" name="@Model.Email" value="@Model.Email" placeholder="Email" disabled>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword4">Şifreniz</label>
-                    <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Şifre">
+                    <input type="password" class="form-control" name="Password" placeholder="Şifre">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword4">Şifre Tekrar</label>
-                    <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Şifre tekrar">
+                    <input type="password" class="form-control" name="ComfirmPassword" placeholder="Şifre tekrar">
                 </div>
                 
                 <div class="form-group">
                     <label>Resim Seç</label>
                     <input type="file" name="img[]" class="file-upload-default">
                     <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info" disabled placeholder="Resim seçiniz">
+                        <input type="text" class="form-control file-upload-info" name="ImageUrl" disabled placeholder="Resim seçiniz">
                         <span class="input-group-append">
                             <button class="file-upload-browse btn btn-primary" type="button">Yükle</button>
                         </span>
