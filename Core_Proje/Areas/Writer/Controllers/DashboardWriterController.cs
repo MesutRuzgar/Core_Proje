@@ -1,4 +1,5 @@
-﻿using EntityLayer.Concrete;
+﻿using DataAccessLayer.Concrete;
+using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -23,6 +24,16 @@ namespace Core_Proje.Controllers
         {
             var values = await _userManager.FindByNameAsync(User.Identity.Name);
             ViewBag.v = values.Name + " " + values.Surname;
+
+            //statistick
+            Context c = new Context();
+            ViewBag.v1 = 0;
+            ViewBag.v2 = c.announcements.Count();
+            ViewBag.v3 = 0;
+            ViewBag.v4 = c.Skills.Count();
+           
+
+
             return View();
         }
     }
