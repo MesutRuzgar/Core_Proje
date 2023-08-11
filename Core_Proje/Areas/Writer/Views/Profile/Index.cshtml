@@ -9,19 +9,20 @@
     <div class="card">
         <div class="card-body">
             <h4 class="card-title">Profil Bilgileri Düzenle</h4>
-            <form class="forms-sample">
+            @*enctype="multipart/form-data" bu kisim kendi resim dosyamizi klasore kaydedebilmek icin*@
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="exampleInputName1">Adınız</label>
-                    <input type="text" name="@Model.Name" value="@Model.Name" class="form-control"  placeholder="Ad">
+                    <input type="text" asp-for="Name" value="@Model.Name" class="form-control" placeholder="Ad">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputName1">Soyadınız</label>
-                    <input type="text" class="form-control" name="@Model.Surname" value="@Model.Surname" placeholder="Soyad">
+                    <input type="text" class="form-control" asp-for="Surname" value="@Model.Surname" placeholder="Soyad">
                 </div>
                 @*<div class="form-group">
-                    <label for="exampleInputEmail3">Kayıtlı Mail Adresiniz</label>
-                    <input type="email" class="form-control" name="@Model.Email" value="@Model.Email" placeholder="Email" disabled>
-                </div>*@
+                <label for="exampleInputEmail3">Kayıtlı Mail Adresiniz</label>
+                <input type="email" class="form-control" name="@Model.Email" value="@Model.Email" placeholder="Email" disabled>
+            </div>*@
                 <div class="form-group">
                     <label for="exampleInputPassword4">Şifreniz</label>
                     <input type="password" class="form-control" name="Password" placeholder="Şifre">
@@ -30,10 +31,10 @@
                     <label for="exampleInputPassword4">Şifre Tekrar</label>
                     <input type="password" class="form-control" name="ComfirmPassword" placeholder="Şifre tekrar">
                 </div>
-                
+
                 <div class="form-group">
                     <label>Resim Seç</label>
-                    <input type="file" name="@Model.PictureUrl" class="file-upload-default">
+                    <input type="file" asp-for="PictureUrl" >
                     <div class="input-group col-xs-12">
                         <input type="text" class="form-control file-upload-info" name="ImageUrl" disabled placeholder="Resim seçiniz">
                         <span class="input-group-append">
@@ -41,8 +42,8 @@
                         </span>
                     </div>
                 </div>
-                
-                
+
+
                 <button type="submit" class="btn btn-primary mr-2">Güncelle</button>
                 <button class="btn btn-light">İptal</button>
             </form>
