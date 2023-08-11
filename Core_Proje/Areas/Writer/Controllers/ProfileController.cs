@@ -20,11 +20,16 @@ namespace Core_Proje.Areas.Writer.Controllers
             _userManager = userManager;
         }
 
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             //sisteme otantike olan kullanıcının kullanıcı adına göre deger al
             var values = await _userManager.FindByNameAsync(User.Identity.Name);
-            return View(values);
+            UserEditViewModel model = new UserEditViewModel();
+            model.Name = values.Name;
+            model.Surname = values.Surname;
+            model.PictureUrl = values.ImageUrl;
+            return View(model);
         }
 
         [HttpPost]

@@ -1,4 +1,4 @@
-﻿@model EntityLayer.Concrete.WriterUser
+﻿@model Core_Proje.Areas.Writer.Models.UserEditViewModel
 
 @{
     ViewData["Title"] = "Index";
@@ -18,10 +18,10 @@
                     <label for="exampleInputName1">Soyadınız</label>
                     <input type="text" class="form-control" name="@Model.Surname" value="@Model.Surname" placeholder="Soyad">
                 </div>
-                <div class="form-group">
+                @*<div class="form-group">
                     <label for="exampleInputEmail3">Kayıtlı Mail Adresiniz</label>
                     <input type="email" class="form-control" name="@Model.Email" value="@Model.Email" placeholder="Email" disabled>
-                </div>
+                </div>*@
                 <div class="form-group">
                     <label for="exampleInputPassword4">Şifreniz</label>
                     <input type="password" class="form-control" name="Password" placeholder="Şifre">
@@ -33,7 +33,7 @@
                 
                 <div class="form-group">
                     <label>Resim Seç</label>
-                    <input type="file" name="img[]" class="file-upload-default">
+                    <input type="file" name="@Model.PictureUrl" class="file-upload-default">
                     <div class="input-group col-xs-12">
                         <input type="text" class="form-control file-upload-info" name="ImageUrl" disabled placeholder="Resim seçiniz">
                         <span class="input-group-append">
