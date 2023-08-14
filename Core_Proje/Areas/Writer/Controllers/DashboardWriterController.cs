@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Core_Proje.Controllers
 {
@@ -31,10 +32,17 @@ namespace Core_Proje.Controllers
             ViewBag.v2 = c.announcements.Count();
             ViewBag.v3 = 0;
             ViewBag.v4 = c.Skills.Count();
-           
+
+            //Weather API
+
+            string api = "5f1628a4ab8c2ba49bd2071d9c1ef43f";
+            string connection = "https://api.openweathermap.org/data/2.5/weather?q=%C4%B0stanbul&mode=xml&lang=tr&units=metric&appid=" + api;
+            XDocument document = XDocument.Load(connection);
+            ViewBag.v5 = document.Descendants("temperature").ElementAt(0).Attribute("value").Value;
 
 
             return View();
         }
     }
+   
 }
