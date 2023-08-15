@@ -40,7 +40,7 @@ namespace BusinessLayer.Concrete
 
         public List<WriterMessage> TGetListByFilter(string p)
         {
-            throw new NotImplementedException();
+            return _writerMessageDal.GetByFilter(x => x.Receiver == p);
         }
 
         public void TUpdate(WriterMessage t)
