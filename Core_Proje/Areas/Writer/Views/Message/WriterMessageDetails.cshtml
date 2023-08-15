@@ -1,0 +1,46 @@
+﻿@model EntityLayer.Concrete.WriterMessage
+
+@{
+    ViewData["Title"] = "WriterMessageDetails";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<body>
+    <div class="content-wrapper">
+        <div class="row justify-content-center">
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-title" style="font-size: 24px">@Model.Subject</p>
+                        <br />
+                        <p class="font-weight-500" style="font-size: 15px; word-break:break-word">@Model.MessageContent</p>
+                        <div class="text-right">
+                            <small><strong>@Model.Date.ToString("dd.MM.yyyy")</strong></small>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-6" style="text-align: left;">
+                                <p class="font-weight-500" style="font-size: 17px; word-break:break-word">Gönderen</p>
+                                <p >@Model.Sender</p>
+                            </div>
+                            <div class="col-md-6" style="text-align: right;">
+                                <a href="/Writer/Message/Index" class="btn btn-danger">Geri</a>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
