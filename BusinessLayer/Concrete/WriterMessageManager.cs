@@ -38,7 +38,7 @@ namespace BusinessLayer.Concrete
            return _writerMessageDal.GetList();
         }
 
-        public List<WriterMessage> TGetListByFilter()
+        public List<WriterMessage> TGetListByFilter(string p)
         {
             throw new NotImplementedException();
         }

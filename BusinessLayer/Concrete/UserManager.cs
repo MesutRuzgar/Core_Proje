@@ -38,10 +38,7 @@ namespace BusinessLayer.Concrete
             return _userDal.GetList();
         }
 
-        public List<User> TGetListByFilter()
-        {
-            throw new NotImplementedException();
-        }
+      
 
         public void TUpdate(User t)
         {
