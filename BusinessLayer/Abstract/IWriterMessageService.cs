@@ -10,5 +10,8 @@ namespace BusinessLayer.Abstract
     public interface IWriterMessageService :IGenericService<WriterMessage>
     {
         List<WriterMessage> TGetListByFilter(string p);
+        List<WriterMessage> GetListSenderMessage(string p);
+        List<WriterMessage> GetListReceiverMessage(string p);
+
     }
 }
