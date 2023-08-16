@@ -31,6 +31,14 @@ namespace Core_Proje.Areas.Writer.Controllers
             return View(messageList);
         }
 
+        public async Task<IActionResult> SenderMessage(string p)
+        {
+            var values = await _userManager.FindByNameAsync(User.Identity.Name);
+            p = values.Email;
+            var messageList = writerMessageManager.GetListSenderMessage(p);
+            return View(messageList);
+        }
+
         [HttpGet]
         public IActionResult ReceiverMessageDetails(int id)
         {
