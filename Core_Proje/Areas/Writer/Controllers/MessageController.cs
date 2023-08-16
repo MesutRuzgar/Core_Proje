@@ -23,7 +23,7 @@ namespace Core_Proje.Areas.Writer.Controllers
             _userManager = userManager;
         }
 
-        public async Task<IActionResult> Index(string p)
+        public async Task<IActionResult> ReceiverMessage(string p)
         {
             var values = await _userManager.FindByNameAsync(User.Identity.Name);
             p = values.Email;
@@ -32,7 +32,7 @@ namespace Core_Proje.Areas.Writer.Controllers
         }
 
         [HttpGet]
-        public IActionResult WriterMessageDetails(int id)
+        public IActionResult ReceiverMessageDetails(int id)
         {
             WriterMessage writerMessage = writerMessageManager.TGetById(id);
             return View(writerMessage);
