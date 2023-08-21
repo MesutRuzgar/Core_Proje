@@ -12,6 +12,8 @@ using System.Threading.Tasks;
 namespace Core_Proje.Areas.Writer.Controllers
 {
     [Area("Writer")]
+    //url i takip etmesi icin route eklendi
+    [Route("Writer/[controller]/[action]")]
     public class MessageController : Controller
     {
        
@@ -40,19 +42,19 @@ namespace Core_Proje.Areas.Writer.Controllers
             return View(messageList);
         }
 
-        [HttpGet]
+
         public IActionResult ReceiverMessageDetails(int id)
         {
             WriterMessage writerMessage = writerMessageManager.TGetById(id);
             return View(writerMessage);
         }
-        [HttpGet]
+     
         public IActionResult SenderMessageDetails(int id)
         {
             WriterMessage writerMessage = writerMessageManager.TGetById(id);
             return View(writerMessage);
         }
-        [HttpGet]
+   
         public IActionResult SendMessage()
         {        
             return View();
@@ -70,7 +72,7 @@ namespace Core_Proje.Areas.Writer.Controllers
             p.Sender = mail;
             p.SenderName = name;
             writerMessageManager.TAdd(p);
-            return RedirectToAction("SenderMessage","Message");
+            return RedirectToAction("SenderMessage");
         }
     }
 }

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 namespace Core_Proje.Areas.Writer.Controllers
 {
     [Area("Writer")]
+    [Route("Writer/[controller]/[action]")]
     public class LoginController : Controller
     {
         private readonly SignInManager<WriterUser> _signInManager;
@@ -35,7 +36,7 @@ namespace Core_Proje.Areas.Writer.Controllers
                 if (result.Succeeded)
                 {
                     //yeni bir aksiyona yönlendir
-                    return RedirectToAction("Index", "Default");
+                    return RedirectToAction("Index", "Profile" );
                 }
                 else
                 {
