@@ -28,9 +28,9 @@ namespace Core_Proje.Controllers
 
             //statistick
             Context c = new Context();
-            ViewBag.v1 = 0;
+            ViewBag.v1 = c.WriterMessages.Where(x=>x.Receiver==values.Email).Count();
             ViewBag.v2 = c.announcements.Count();
-            ViewBag.v3 = 0;
+            ViewBag.v3 = c.Users.Count();
             ViewBag.v4 = c.Skills.Count();
 
             //Weather API
