@@ -56,6 +56,7 @@ namespace Core_Proje.Areas.Writer.Controllers
             }
             user.Name = p.Name;
             user.Surname = p.Surname;
+            user.PasswordHash = _userManager.PasswordHasher.HashPassword(user, p.Password);
             var result = await _userManager.UpdateAsync(user);
             if (result.Succeeded)
             {
