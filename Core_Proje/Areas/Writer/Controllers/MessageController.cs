@@ -13,7 +13,7 @@ namespace Core_Proje.Areas.Writer.Controllers
 {
     [Area("Writer")]
     //url i takip etmesi icin route eklendi
-    [Route("Writer/[controller]/[action]")]
+    [Route("Writer/[controller]/[action]/{id?}")]
     public class MessageController : Controller
     {
        
