@@ -45,6 +45,11 @@ namespace Core_Proje.Areas.Writer.Controllers
             WriterMessage writerMessage = writerMessageManager.TGetById(id);
             return View(writerMessage);
         }
-
+        [HttpGet]
+        public IActionResult SenderMessageDetails(int id)
+        {
+            WriterMessage writerMessage = writerMessageManager.TGetById(id);
+            return View(writerMessage);
+        }
     }
 }
