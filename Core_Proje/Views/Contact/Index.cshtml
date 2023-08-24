@@ -16,7 +16,7 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th></th>
+                           
                             <th>Gönderen</th>
                             <th>Mail</th>
                             <th>Tarih</th>
@@ -28,13 +28,13 @@
                         @foreach (var item in Model)
                         {
                         <tr>
-                            <td></td>
+                           
                             <td>@item.Name</td>
                             <td>@item.Mail</td>
                             <td>@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</td>
-                           
 
                             <td><a href="/ContactMessageDetails/@item.MessageId" class="btn btn-outline-primary">Mesajı Gör</a></td>
+                            <td><a href="/Contact/DeleteContact/@item.MessageId" class="btn btn-outline-danger">Mesajı Sil</a></td>
                         </tr>
                         }
                     </tbody>
