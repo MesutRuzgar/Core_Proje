@@ -16,9 +16,7 @@ namespace Core_Proje.Controllers
         //sag tıkla view ekle
         public IActionResult Index()
         {
-            ViewBag.d1 = "Düzenleme";
-            ViewBag.d2 = "Öne Çıkanlar";
-            ViewBag.d3 = "Öne Çıkan Sayfası";
+            
             //id 1 vermemizin sebebi feature managerda her zaman bir id ile calisacaz
             //o id ise "1"
             var values = featureManager.TGetById(1);
