@@ -20,7 +20,7 @@
                         <th scope="col" class="sort" data-sort="name">Proje</th>
                         <th scope="col" class="sort" data-sort="budget">Ücret</th>
                         <th scope="col" class="sort" data-sort="status">Durum</th>
-                        <th scope="col">Görseller</th>
+                        @*<th scope="col">Görseller</th>*@
                         <th scope="col" class="sort" data-sort="completion">İlerleme</th>
                         <th scope="col"></th>
                         <th scope="col"></th>
@@ -49,22 +49,7 @@
                                 <span class="status">Tamamlandı</span>
                             </span>
                         </td>
-                        <td>
-                            <div class="avatar-group">
-                                <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip">
-                                    <img alt="Image placeholder" src="~/argon-dashboard-master/assets/img/theme/team-1.jpg">
-                                </a>
-                                <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Romina Hadid">
-                                    <img alt="Image placeholder" src="~/argon-dashboard-master/assets/img/theme/team-2.jpg">
-                                </a>
-                                <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Alexander Smith">
-                                    <img alt="Image placeholder" src="~/argon-dashboard-master/assets/img/theme/team-3.jpg">
-                                </a>
-                                <a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip" data-original-title="Jessica Doe">
-                                    <img alt="Image placeholder" src="~/argon-dashboard-master/assets/img/theme/team-4.jpg">
-                                </a>
-                            </div>
-                        </td>
+                        
                         <td>
                             <div class="d-flex align-items-center">
                                 <span class="completion mr-2">@item.Value%</span>
