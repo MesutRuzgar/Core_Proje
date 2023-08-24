@@ -4,43 +4,50 @@
     Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
-<div class="card-header border-0 d-flex align-items-center">
-    <h3 class="mb-0 mr-auto">Proje Ekleme </h3>
+
+
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Proje Ekleme</h4>
+            <form method="post" class="forms-sample">
+                <div class="form-group">
+                    <label>Proje</label>
+                    <input type="text" name="Name" class="form-control" placeholder="Proje Adı Giriniz" />
+                    @Html.ValidationMessageFor(x => x.Name, null, new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <label>Küçük Resim</label>
+                    <input type="text" name="ImageUrl" class="form-control" placeholder="Cv sayfasında görünecek resim">
+                    @Html.ValidationMessageFor(x => x.ImageUrl, null, new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <label>Büyük Resim</label>
+                    <input type="text" name="ImageUrl2" class="form-control" placeholder="Cv sayfasında tıklanıldığında açılacak resim">
+                    @Html.ValidationMessageFor(x => x.ImageUrl2, null, new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <label>Proje Adresi</label>
+                    <input type="text" name="ProjectUrl" class="form-control" placeholder="Projeye ait link">
+                </div>
+                <div class="form-group">
+                    <label>Ücret</label>
+                    <input type="text" name="Price" class="form-control" placeholder="Projeye ücreti, Örn. $2000 USD">
+                    @Html.ValidationMessageFor(x => x.Price, null, new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    <label>İlerleme (%)</label>
+                    <input type="text" name="Value" class="form-control" placeholder="Örn. 65">
+                    @Html.ValidationMessageFor(x => x.Value, null, new { @class = "text-danger" })
+
+                </div>
+
+
+                <button type="submit" class="btn btn-success">Kaydet</button>
+                <a href="/Portfolio" class="btn btn-youtube">İptal</a>
+            </form>
+
+        </div>
+    </div>
 </div>
-<br />
-<form method="post">
-    <div class="form-group">
-        <label>Proje</label>
-        <input type="text" name="Name" class="form-control" placeholder="Proje Adı Giriniz" />
-        @Html.ValidationMessageFor(x => x.Name,null, new { @class = "text-danger" })
-    </div>
-    <div class="form-group">
-        <label>Küçük Resim</label>
-        <input type="text" name="ImageUrl" class="form-control" placeholder="Cv sayfasında görünecek resim">
-        @Html.ValidationMessageFor(x => x.ImageUrl, null, new { @class = "text-danger" })
-    </div>
-    <div class="form-group">
-        <label>Büyük Resim</label>
-        <input type="text" name="ImageUrl2" class="form-control" placeholder="Cv sayfasında tıklanıldığında açılacak resim">
-        @Html.ValidationMessageFor(x => x.ImageUrl2, null, new { @class = "text-danger" })
-    </div>
-    <div class="form-group">
-        <label>Proje Adresi</label>
-        <input type="text" name="ProjectUrl" class="form-control" placeholder="Projeye ait link">
-    </div>
-    <div class="form-group">
-        <label>Ücret</label>
-        <input type="text" name="Price" class="form-control" placeholder="Projeye ücreti, Örn. $2000 USD">
-        @Html.ValidationMessageFor(x => x.Price, null, new { @class = "text-danger" })
-    </div>
-    <div class="form-group">
-        <label>İlerleme (%)</label>
-        <input type="text" name="Value" class="form-control" placeholder="Örn. 65">
-        @Html.ValidationMessageFor(x => x.Value, null, new { @class = "text-danger" })
-
-    </div>
-
-    <button type="submit" class="btn btn-success">Kaydet</button>
-    <a href="/Portfolio" class="btn btn-youtube">İptal</a>
-</form>
-
