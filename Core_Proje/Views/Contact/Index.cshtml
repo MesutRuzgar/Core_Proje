@@ -33,7 +33,7 @@
                             <td>@item.Mail</td>
                             <td>@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</td>
 
-                            <td><a href="/ContactMessageDetails/@item.MessageId" class="btn btn-outline-primary">Mesajı Gör</a></td>
+                            <td><a href="/Contact/ContactDetails/@item.MessageId" class="btn btn-outline-primary">Mesajı Gör</a></td>
                             <td><a href="/Contact/DeleteContact/@item.MessageId" class="btn btn-outline-danger">Mesajı Sil</a></td>
                         </tr>
                         }
