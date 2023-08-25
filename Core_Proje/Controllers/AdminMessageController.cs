@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
+using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,17 @@ namespace Core_Proje.Controllers
             p = "deneme@deneme.com";
             var values = writerMessageManager.GetListSenderMessage(p);
             return View(values);
+        }
+        public IActionResult ReceiverMessageDetails(int id)
+        {
+            WriterMessage writerMessage = writerMessageManager.TGetById(id);
+            return View(writerMessage);
+        }
+
+        public IActionResult SenderMessageDetails(int id)
+        {
+            WriterMessage writerMessage = writerMessageManager.TGetById(id);
+            return View(writerMessage);
         }
     }
 }

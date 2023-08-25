@@ -18,7 +18,12 @@
                 overflow: hidden;
                 white-space: pre-wrap;
                 word-wrap: break-word;
+                color: white;
             }
+
+        table, th, td {
+            border: 2px solid antiquewhite;
+        }
     </style>
 </head>
 
@@ -30,21 +35,21 @@
                 <div class="table-responsive">
                     <table border="1" bordercolordark="blue" class="table">
                         <tr>
-                            <td style="width:120px !important;">><strong>Alıcı :</strong></td>
+                            <td style="width:120px !important;"><strong>Alıcı :</strong></td>
                             <td colspan="6"><strong>@Model.ReceiverName</strong> [ @Model.Receiver ]</td>
 
                         </tr>
                         <tr>
-                            <td style="width:120px !important;">><strong>Konu :</strong></td>
+                            <td style="width:120px !important;"><strong>Konu :</strong></td>
                             <td colspan="6">@Model.Subject</td>
                         </tr>
                         <tr>
-                            <td style="width:120px !important;">><strong>Tarih :</strong></td>
+                            <td style="width:120px !important;"><strong>Tarih :</strong></td>
                             <td colspan="6">@(((DateTime)Model.Date).ToString("dd-MMM-yyyy"))</td>
 
                         </tr>
                         <tr>
-                            <td style="width:120px !important;">><strong>Mesaj :</strong></td>
+                            <td style="width:120px !important;"><strong>Mesaj :</strong></td>
                             <td colspan="6">@Model.MessageContent</td>
                         </tr>
                     </table>

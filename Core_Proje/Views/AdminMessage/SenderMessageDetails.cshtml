@@ -1,11 +1,10 @@
-﻿@model EntityLayer.Concrete.Message
+﻿@model EntityLayer.Concrete.WriterMessage
 
 @{
-    ViewData["Title"] = "ContactDetails";
+    ViewData["Title"] = "SenderMessageDetails";
     Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -33,13 +32,16 @@
             <div class="card-body">
                 <h4 class="card-title">Mesaj Detayı</h4>
                 <div class="table-responsive">
-                    <table  class="table">
+                    <table border="1" bordercolordark="blue" class="table">
                         <tr>
-                            <td style="width:120px !important;"><strong>Gönderen :</strong></td>
-                            <td colspan="6"><strong>@Model.Name</strong> [ @Model.Mail ]</td>
+                            <td style="width:120px !important;"><strong>Alıcı :</strong></td>
+                            <td colspan="6"><strong>@Model.ReceiverName</strong> [ @Model.Receiver ]</td>
 
                         </tr>
-                        
+                        <tr>
+                            <td style="width:120px !important;"><strong>Konu :</strong></td>
+                            <td colspan="6">@Model.Subject</td>
+                        </tr>
                         <tr>
                             <td style="width:120px !important;"><strong>Tarih :</strong></td>
                             <td colspan="6">@(((DateTime)Model.Date).ToString("dd-MMM-yyyy"))</td>
@@ -47,12 +49,12 @@
                         </tr>
                         <tr>
                             <td style="width:120px !important;"><strong>Mesaj :</strong></td>
-                            <td colspan="6">@Model.Content</td>
+                            <td colspan="6">@Model.MessageContent</td>
                         </tr>
                     </table>
                     <br />
                     <div class="col-md-12" style="text-align: right;">
-                        <a href="/Contact" class="btn btn-danger">Geri</a>
+                        <a href="/AdminMessage/SenderMessageList" class="btn btn-danger">Geri</a>
                     </div>
                 </div>
             </div>
@@ -63,4 +65,3 @@
 </body>
 
 </html>
-
