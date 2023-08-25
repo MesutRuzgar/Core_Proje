@@ -56,5 +56,20 @@ namespace Core_Proje.Controllers
             }
             
         }
+        [HttpGet]
+        public IActionResult AdminMessageSend()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AdminMessageSend(WriterMessage p)
+        {
+            p.Sender = "deneme@deneme.com";
+            p.SenderName = "Mesut Rüzgar";
+            p.Date = DateTime.Parse(DateTime.Now.ToShortDateString());
+            writerMessageManager.TAdd(p);           
+            return RedirectToAction("SenderMessageList");
+        }
     }
 }
