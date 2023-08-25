@@ -117,14 +117,25 @@
             <span class="menu-title">Projeler</span>
         </a>
     </li>
+    
+
     <li class="nav-item menu-items">
-        <a class="nav-link" href="../../pages/icons/mdi.html">
+        <a class="nav-link" data-toggle="collapse" href="#message" aria-expanded="false" aria-controls="message">
             <span class="menu-icon">
                 <i class="mdi mdi-message-reply-text"></i>
             </span>
             <span class="menu-title">Mesajlar</span>
+            <i class="menu-arrow"></i>
         </a>
+        <div class="collapse" id="message">
+            <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="/AdminMessage/AdminMessageSend"> Mesaj Yaz </a></li>
+                <li class="nav-item"> <a class="nav-link" href="/AdminMessage/ReceiverMessageList"> Gelen Mesajlar </a></li>
+                <li class="nav-item"> <a class="nav-link" href="/AdminMessage/SenderMessageList"> Gönderilen Mesajlar </a></li>
+            </ul>
+        </div>
     </li>
+
     <li class="nav-item menu-items">
         <a class="nav-link" href="/Contact/">
             <span class="menu-icon">

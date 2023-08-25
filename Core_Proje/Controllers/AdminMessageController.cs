@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
@@ -68,6 +69,9 @@ namespace Core_Proje.Controllers
             p.Sender = "deneme@deneme.com";
             p.SenderName = "Mesut Rüzgar";
             p.Date = DateTime.Parse(DateTime.Now.ToShortDateString());
+            Context c = new Context();
+            var usernamesurname = c.Users.Where(x => x.Email == p.Receiver).Select(y => y.Name + " " + y.Surname).FirstOrDefault();
+            p.ReceiverName = usernamesurname;
             writerMessageManager.TAdd(p);           
             return RedirectToAction("SenderMessageList");
         }
