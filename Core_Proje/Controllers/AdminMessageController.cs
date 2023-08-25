@@ -37,5 +37,24 @@ namespace Core_Proje.Controllers
             WriterMessage writerMessage = writerMessageManager.TGetById(id);
             return View(writerMessage);
         }
+       
+        public IActionResult DeleteMessage(int id)
+        {
+            string p;
+            p = "deneme@deneme.com";
+            var values = writerMessageManager.TGetById(id);
+           
+            if (values.Receiver==p)
+            {
+                writerMessageManager.TDelete(values);
+                return RedirectToAction("ReceiverMessageList");
+            }
+            else
+            {
+                writerMessageManager.TDelete(values);
+                return RedirectToAction("SenderMessageList");
+            }
+            
+        }
     }
 }
