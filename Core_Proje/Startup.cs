@@ -53,6 +53,8 @@ namespace Core_Proje
             {
                 options.Cookie.HttpOnly = true;
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(10);
+                //erisimi olmayanlar icin yonlendirme
+                options.AccessDeniedPath = "/ErrorPage/Index";
                 options.LoginPath = "/Writer/Login/Index";
             });
         }
