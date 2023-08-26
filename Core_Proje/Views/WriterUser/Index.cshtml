@@ -1,8 +1,47 @@
-﻿
+﻿@using EntityLayer.Concrete
+@model List<WriterUser>
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
-<h1>Index</h1>
+<div class="col-md-6">
+    <div class="p-2">
+        <button type="button" id="getlistall" class="btn btn-success">Verileri Getir</button>
+    </div>
+</div>
 
+<h4 class="text-center">Yazar Listesi</h4>
+<div class="p2-" id="listuser">
+    buraya veriler gelecek
+</div>
+
+
+@section Scripts
+{
+<script>
+    $("#getlistall").click(function(){
+        $.ajax({
+            //iceregin türü
+            contentType: "application/json",
+            //verinin tipi
+            dataType: "json",
+            //get mi postlami calisacak
+            type: "Get",
+            //neredeki degeri getireceksin
+            url: "/WriterUser/ListUser/",
+
+            //eger basarili olursa bana bir fonksiyon dön ismi funk olsun dedik
+            success: function (funk) {
+                //let ajax da/js de degisken tanimlamak icin kullanilir
+                //aldigimiz verileri jsona dondur dedik
+                let users = jQuery.parseJSON(funk);
+                console.log(users);
+            }
+        });
+    });
+</script>
+}
+@*yazdigimiz scriptin calismasi icin ekledik*@
+<script src="~/lib/jquery/dist/jquery.js"></script>
