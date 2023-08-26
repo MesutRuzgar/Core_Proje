@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace Core_Proje.Controllers
 {
     public class DefaultController : Controller
     {
+        [AllowAnonymous]
         //index e sağ tıklayıp viewden indexi buraya aldık en başta
         public IActionResult Index()
         {

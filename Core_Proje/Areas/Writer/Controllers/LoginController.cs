@@ -1,5 +1,6 @@
 ﻿using Core_Proje.Areas.Writer.Models;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -9,6 +10,8 @@ using System.Threading.Tasks;
 
 namespace Core_Proje.Areas.Writer.Controllers
 {
+    //auth kurallarindan muaf demek cunku buradan giris yapacagiz
+    [AllowAnonymous]
     [Area("Writer")]
     [Route("Writer/[controller]/[action]")]
     public class LoginController : Controller
