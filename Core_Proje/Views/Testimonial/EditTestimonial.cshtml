@@ -1,8 +1,43 @@
-﻿
+﻿@model EntityLayer.Concrete.Testimonial
+
 @{
     ViewData["Title"] = "EditTestimonial";
     Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
-<h1>EditTestimonial</h1>
+
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Refarans Detayları</h4>
+            <form class="forms-sample" method="post">
+
+
+                @Html.HiddenFor(model => model.TestimonialId)
+                <div class="form-group">
+                    <label for="exampleInputName1">Ad Soyad</label>
+                    <input type="text" name="ClientName" class="form-control" value="@Model.ClientName" />
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Resim</label>
+                    <input type="text" name="ImageUrl" class="form-control" value="@Model.ImageUrl" />
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Şirket</label>
+                    <input type="text" name="Company" class="form-control" value="@Model.Company">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Yorum</label>
+                    <input type="text" name="Comment" class="form-control" value="@Model.Comment">
+                </div>
+
+                <button type="submit" class="btn btn-success mr-2">Güncelle</button>
+                <a href="/Testimonial" class="btn btn-danger">Geri</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+
 
