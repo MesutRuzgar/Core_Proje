@@ -39,13 +39,14 @@ namespace Core_Proje.Controllers
         }
 
         [HttpGet]
-        public IActionResult EditSocialMedia()
+        public IActionResult EditSocialMedia(int id)
         {
-            return View();
+            var values = socialMediaManager.TGetById(id);
+            return View(values);
         }
         [HttpPost]
         public IActionResult EditSocialMedia(SocialMedia socialMedia)
-        {
+        {            
             socialMediaManager.TUpdate(socialMedia);
             return RedirectToAction("Index");
         }
