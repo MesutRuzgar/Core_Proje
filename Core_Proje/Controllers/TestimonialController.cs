@@ -21,7 +21,7 @@ namespace Core_Proje.Controllers
         {
             var values = testimonialManager.TGetById(id);
             testimonialManager.TDelete(values);
-            return View("Index");
+            return RedirectToAction("Index");
         }
         [HttpGet]
         public IActionResult EditTestimonial(int id)
@@ -31,11 +31,23 @@ namespace Core_Proje.Controllers
             return View(values);
 
         }
-
         [HttpPost]
         public IActionResult EditTestimonial(Testimonial testimonial)
         {
             testimonialManager.TUpdate(testimonial);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult AddTestimonial()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddTestimonial(Testimonial testimonial)
+        {
+            testimonialManager.TAdd(testimonial);
             return RedirectToAction("Index");
         }
     }

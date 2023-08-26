@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewData["Title"] = "AddTestimonial";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Referans Ekleme</h4>
+            <form method="post" class="forms-sample">
+                <div class="form-group">
+                    <label for="exampleInputName1">Ad Soyad</label>
+                    <input type="text" class="form-control" name="ClientName" placeholder="Referansınızın adı soyadı">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Şirket</label>
+                    <input type="text" class="form-control" name="Company" placeholder="Refaransınızın çalıştığı kurum ve unvanı">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Yorum</label>
+                    <input type="text" class="form-control" name="Comment" placeholder="Refaransınızın hakkınızdaki yorumu">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Resim</label>
+                    <input type="text" class="form-control" name="ImageUrl" >
+                </div>
+
+                <button type="submit" class="btn btn-success mr-2">Kaydet</button>
+                <a href="/Testimonial" class="btn btn-danger">İptal</a>
+            </form>
+
+        </div>
+    </div>
+</div>
+
