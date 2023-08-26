@@ -123,13 +123,10 @@
                                 
                             </div>
                         </li>
-                        <li class="nav-item nav-settings d-none d-lg-block">
-                            <a class="nav-link" href="#">
-                                <i class="mdi mdi-view-grid"></i>
-                            </a>
-                        </li>
+                        
                         @await Component.InvokeAsync("AdminNavbarMessageList")
-                        <li class="nav-item dropdown border-left">
+
+                        @*<li class="nav-item dropdown border-left">
                             <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
                                 <i class="mdi mdi-bell"></i>
                                 <span class="count bg-danger"></span>
@@ -175,7 +172,7 @@
                                 <div class="dropdown-divider"></div>
                                 <p class="p-3 mb-0 text-center">See all notifications</p>
                             </div>
-                        </li>
+                        </li>*@
                         <li class="nav-item dropdown">
                             <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                                 <div class="navbar-profile">

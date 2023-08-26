@@ -35,6 +35,14 @@ namespace Core_Proje.Controllers
             ValidationResult result = validations.Validate(portfolio);
             if (result.IsValid)
             {
+                if (portfolio.Value>=100)
+                {
+                    portfolio.Status = true;
+                }
+                else
+                {
+                    portfolio.Status = false;
+                }
                 portfolioManager.TAdd(portfolio);
                 return RedirectToAction("Index");
             }
@@ -73,6 +81,14 @@ namespace Core_Proje.Controllers
             ValidationResult result = validations.Validate(portfolio);
             if (result.IsValid)
             {
+                if (portfolio.Value >= 100)
+                {
+                    portfolio.Status = true;
+                }
+                else
+                {
+                    portfolio.Status = false;
+                }
                 portfolioManager.TUpdate(portfolio);
                 return RedirectToAction("Index");
             }

@@ -32,34 +32,31 @@
                     {
 
 
-                        <tr>
+                    <tr>
 
-                            <td scope="row">
-                                <div class="media align-items-center">
-                                    <a href="#" class="avatar rounded-circle mr-3">
-                                        <img alt="Image placeholder" src="@item.Platform">
-                                    </a>
-                                    <div class="media-body">
-                                        <span class="name mb-0 text-sm">@item.Name</span>
-                                    </div>
+                        <td scope="row">
+                            <div class="media align-items-center">
+                                <a  class="avatar rounded-circle mr-3">
+                                    <img alt="Image placeholder" src="@item.Platform">
+                                </a>
+                                <div class="media-body">
+                                    <span class="name mb-0 text-sm">@item.Name</span>
                                 </div>
-                            </td>
-                            <td>@item.Price</td>
+                            </div>
+                        </td>
+                        <td>@item.Price</td>
 
-                            @if (item.Value >= 100)
-                            {
-                                <td>Tamamladı</td>
-                            }
-                            else
-                            {
-                                <td>Devam Ediyor</td>
-                            }
+                        <td>
+                            <div class="@(item.Status ? "badge badge-outline-success" : "badge badge-outline-danger")">
+                                @(item.Status ? "Tamamlandı" : "Devam Ediyor")
+                            </div>
+                        </td>
 
-                            <td>@item.Value%</td>
+                        <td>@item.Value%</td>
+                        <td> <a href="/Portfolio/EditPortfolio/@item.PortfolioId" class="btn btn-warning">Güncelle</a></td>
+                        <td> <a href="/Portfolio/DeletePortfolio/@item.PortfolioId" class="btn btn-youtube">Sil</a></td>
 
-                            <td> <a href="/Portfolio/DeletePortfolio/@item.PortfolioId" class="btn btn-youtube">Sil</a></td>
-                            <td> <a href="/Portfolio/EditPortfolio/@item.PortfolioId" class="btn btn-info">Güncelle</a></td>
-                        </tr>
+                    </tr>
 
                     }
                 </tbody>
