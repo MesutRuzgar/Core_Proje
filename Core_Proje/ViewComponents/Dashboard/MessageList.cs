@@ -10,11 +10,12 @@ namespace Core_Proje.ViewComponents.Dashboard
 {
     public class MessageList : ViewComponent
     {
+        MessageManager MessageManager = new MessageManager(new EfMessageDal());
     
         public IViewComponentResult Invoke()
         {
-           
-            return View();
+            var values = MessageManager.TGetList();
+            return View(values);
 
         }
     }
