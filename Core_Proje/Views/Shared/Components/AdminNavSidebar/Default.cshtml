@@ -1,0 +1,14 @@
+﻿<div class="profile-pic">
+    <div class="count-indicator">
+        <img class="img-xs rounded-circle " src="~/userimage/@ViewBag.v2" alt="">
+        <span class="count bg-success"></span>
+    </div>
+    <div class="profile-name">
+        <div class="profile-name">
+
+            <h5 class="mb-0 font-weight-normal"> @ViewBag.v</h5>
+            <span>@(User.IsInRole("Admin") ? "Admin" : "Normal Kullanıcı")</span>
+        </div>
+
+    </div>
+</div>
