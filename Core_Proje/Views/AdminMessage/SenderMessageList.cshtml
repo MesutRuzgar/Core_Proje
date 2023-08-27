@@ -34,8 +34,8 @@
                                 <td>@item.Subject</td>
                                 <td>@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</td>
 
-                                <td><a href="/AdminMessage/SenderMessageDetails/@item.WriterMessageId" class="btn btn-outline-primary">Mesajı Gör</a></td>
-                                <td><a href="/AdminMessage/DeleteMessage/@item.WriterMessageId" class="btn btn-outline-danger">Mesajı Sil</a></td>
+                                <td><a href="/AdminMessage/SenderMessageDetails/@item.WriterMessageId" class="btn btn-warning">Mesajı Gör</a></td>
+                                <td><a href="/AdminMessage/DeleteMessage/@item.WriterMessageId" class="btn btn-danger">Mesajı Sil</a></td>
                             </tr>
                         }
                     </tbody>
