@@ -74,7 +74,10 @@ namespace Core_Proje
             }
 
             //hata sayfalari icin
-            app.UseStatusCodePages();
+            //app.UseStatusCodePages();
+
+            //belirli bir sayfaya yonlendirmek icin
+            app.UseStatusCodePagesWithReExecute("/ErrorPage/Error404");
 
 
             app.UseHttpsRedirection();
