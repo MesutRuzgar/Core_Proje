@@ -1,23 +1,46 @@
 ﻿
 
 
-
 <div class="col-md-6" data-aos="zoom-in" data-aos-delay="100">
     <div class="bg-light my-2 p-3 pt-2">
-        <form action="/Default/SendMessage/" method="POST">
+        <form >
             <div class="form-group my-2">
                 <label for="name" class="form-label fw-bolder">Adınız</label>
-                <input class="form-control" type="text" id="name" name="Name" required>
+                <input class="form-control" type="text" id="inpname" name="Name" required>
             </div>
             <div class="form-group my-2">
                 <label for="email" class="form-label fw-bolder">Mail Adresiniz</label>
-                <input class="form-control" type="email" id="email" name="Mail" required>
+                <input class="form-control" type="email" id="inpemail" name="Mail" required>
             </div>
             <div class="form-group my-2">
                 <label for="message" class="form-label fw-bolder">Mesajınız</label>
-                <textarea class="form-control" style="resize: none;" id="message" name="Contact" rows="4" required></textarea>
+                <textarea class="form-control" style="resize: none;" id="inpmessage" name="Contact" rows="4" required></textarea>
             </div>
-            <button class="btn btn-primary mt-2" type="submit">Gönder</button>
+            <button id="btnsend" class="btn btn-primary mt-2" type="submit">Gönder</button>
         </form>
     </div>
 </div>
+
+
+@section Scripts2
+{
+    <script>
+        $("#btnsend").click(function () {
+            let values = {
+                Name: $("#inpname").val(),
+                Mail: $("#inpemail").val(),
+                Contact: $("#inpmessage").val()
+            };
+            $.ajax({
+                type: "Post",
+                url: "/Default/SendMessageAjax/",
+                data: values,
+                success: function (response) {
+                    console.log(response);
+                    alert("Mesaj başarıyla gönderildi");
+                }
+            });
+        });
+    </script>
+}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
