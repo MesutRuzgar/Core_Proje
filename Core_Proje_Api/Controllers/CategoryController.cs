@@ -1,4 +1,5 @@
 ﻿using Core_Proje_Api.DAL.ApiContext;
+using Core_Proje_Api.DAL.Entity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -34,6 +35,15 @@ namespace Core_Proje_Api.Controllers
             }
         }
 
+        [HttpPost]
+        public IActionResult CategoryAdd(Category category)
+        {
+            var c = new Context();
+            c.Add(category);
+            c.SaveChanges();
+            return Created("",category);
+         
+        }
 
     }
 }
