@@ -10,23 +10,23 @@ using System.Threading.Tasks;
 
 namespace Core_Proje.Controllers
 {
-    public class WriterUserController : Controller
+    public class ExperienceAjaxController : Controller
     {
-        WriterManager writerManager = new WriterManager(new EfWriterDal());
+        ExperienceManager experienceManager = new ExperienceManager(new EfExperienceDal());
         public IActionResult Index()
         {
-           return View();
+            return View();
         }
-        public IActionResult ListUser()
+        public IActionResult ListExperience()
         {
             //veriyi JSON formatına donusturduk
-            var values = JsonConvert.SerializeObject(writerManager.TGetList());
+            var values = JsonConvert.SerializeObject(experienceManager.TGetList());
             return Json(values);
         }
         [HttpPost]
-        public IActionResult AddUser(WriterUser p)
+        public IActionResult AddExperience(Experience p)
         {
-            writerManager.TAdd(p);
+            experienceManager.TAdd(p);
             var values = JsonConvert.SerializeObject(p);
             return Json(values);
         }

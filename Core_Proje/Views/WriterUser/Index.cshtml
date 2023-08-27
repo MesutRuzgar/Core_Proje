@@ -8,7 +8,8 @@
 
 <div class="col-md-6">
     <div class="p-2">
-        <button type="button" id="getlistall" class="btn btn-success">Verileri Getir</button>
+        <button type="button" id="btngetlistall" class="btn btn-success">Verileri Getir</button>
+        <button type="button" id="btnadduser" class="btn btn-success">Ekle</button>
     </div>
 </div>
 
@@ -16,12 +17,23 @@
 <div class="p2-" id="listuser">
     buraya veriler gelecek
 </div>
+<br />
+@*<div class="col-md-12">
+    <input type="text" class="form-control" id="inpname" placeholder="Ad" />
+    <br />
+    <input type="text" class="form-control" id="inpsurname" placeholder="Soyad" />
+    <br />
+    <input type="text" class="form-control" id="inpusername" placeholder="Kullanıcı Adı" />
+    <br />
+    <input type="email" class="form-control" id="inpmaile" placeholder="Mail Adresi" />
+    <br />
+</div>*@
 
 
 @section Scripts
 {
 <script>
-    $("#getlistall").click(function(){
+    $("#btngetlistall").click(function(){
         $.ajax({
             //iceregin türü
             contentType: "application/json",

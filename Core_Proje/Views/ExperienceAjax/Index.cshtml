@@ -1,0 +1,72 @@
+﻿@using EntityLayer.Concrete
+@model List<Experience>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="col-md-6">
+    <div class="p-2">
+        <button type="button" id="btngetlistall" class="btn btn-success">Verileri Getir</button>
+        <button type="button" id="btnadd" class="btn btn-success">Ekle</button>
+    </div>
+</div>
+
+<h4 class="text-center">Deneyim Listesi</h4>
+<div class="p2-" id="listexperience">
+    Verileri getirmek için lütfen butona tıklayınız..
+</div>
+<br />
+<div class="col-md-12">
+        <input type="text" class="form-control" id="inpname" placeholder="Ad" />
+        <br />
+        <input type="text" class="form-control" id="inpsurname" placeholder="Soyad" />
+        <br />
+        <input type="text" class="form-control" id="inpusername" placeholder="Kullanıcı Adı" />
+        <br />
+        <input type="email" class="form-control" id="inpmaile" placeholder="Mail Adresi" />
+        <br />
+    </div>
+
+
+@section Scripts
+{
+    <script>
+    $("#btngetlistall").click(function(){
+        $.ajax({
+            //iceregin türü
+            contentType: "application/json",
+            //verinin tipi
+            dataType: "json",
+            //get mi postlami calisacak
+            type: "Get",
+            //neredeki degeri getireceksin
+            url: "/ExperienceAjax/ListExperience/",
+
+            //eger basarili olursa bana bir fonksiyon dön ismi funk olsun dedik
+            success: function (funk) {
+                //let ajax da/js de degisken tanimlamak icin kullanilir
+                //aldigimiz verileri jsona dondur dedik
+                let values = jQuery.parseJSON(funk);
+                console.log(values);
+
+                //veriler icin tablo olusturduk
+                let htmlst = "<table class=table table-bordered> <tr><th> Başlık </th> <th> Tarih </th></tr>";
+                //each her biri icin
+                $.each(values, (index, value) => {
+                    htmlst += `<tr><td>${value.Name}</td> <td>${value.Date}</td> </tr>`
+                });
+                htmlst += "</table>";
+
+                //verileri tabloya yansitacaz
+
+                $("#listexperience").html(htmlst);
+
+            }
+        });
+    });
+    </script>
+}
+@*yazdigimiz scriptin calismasi icin ekledik*@
+<script src="~/lib/jquery/dist/jquery.js"></script>
