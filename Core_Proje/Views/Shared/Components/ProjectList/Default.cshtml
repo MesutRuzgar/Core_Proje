@@ -22,24 +22,25 @@
                         <tbody>
                             @foreach (var item in Model)
                             {
-                                <tr>
-                                    <td>
-                                        #
-                                    </td>
-                                    <td>
-                                        <img src=@item.Platform alt="image" />
-                                    </td>
-                                    <td> <span class="pl-2">@item.Name</span></td>
-                                    <td> @item.Price</td>
-                                    <td> @item.Value% </td>
-                                    <td>
-                                        <div class="@(item.Status ? "badge badge-outline-success" : "badge badge-outline-danger")">
-                                            @(item.Status ? "Tamamlandı" : "Devam Ediyor")
-                                        </div>
-                                    </td>
+                            <tr>
+                                <td>
+                                    #
+                                </td>
+                                <td>
+                                    <img src=@item.Platform alt="image" />
+                                </td>
+                                <td> <span class="pl-2">@item.Name</span></td>
+                                <td> @item.Price</td>
+                                <td> @item.Value% </td>
+                                <td>
+                                    <div class="@(item.Status ? "badge badge-outline-success" : "badge badge-outline-danger")">
+                                        @(item.Status ? "Tamamlandı" : "Devam Ediyor")
+                                    </div>
+                                </td>
 
-                                    <td> @item.ProjectUrl </td>
-                                </tr>
+                                <td> @item.ProjectUrl </td>
+                                <td> <a href="/Portfolio/EditPortfolio/@item.PortfolioId"> <div class="btn btn-warning"> Detayları Gör</div></a> </td>
+                            </tr>
                             }
 
                         </tbody>
