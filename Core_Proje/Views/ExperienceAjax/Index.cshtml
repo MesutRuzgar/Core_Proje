@@ -11,6 +11,9 @@
         <button type="button" id="btngetlistall" class="btn btn-warning">Verileri Getir</button>
         <button type="button" id="btnadd" class="btn btn-success">Ekle</button>
         <button type="button" id="btnid" class="btn btn-info">Nuramaya Göre Getir</button>
+        <button type="button" id="btndelete" class="btn btn-danger">Sil</button>
+        <button type="button" id="btnupdate" class="btn btn-info">Güncelle</button>
+
     </div>
 </div>
 
@@ -34,6 +37,11 @@
 <div class="col-md-12">
     <h4>Numaraya Göre Getirme Paneli</h4>
     <input type="text" class="form-control" id="inpid" placeholder="Deneyim numarasını giriniz.." />
+    <br />
+</div>
+<div class="col-md-12">
+    <h4>Silme Paneli</h4>
+    <input type="text" class="form-control" id="inpexpid" placeholder="Deneyim numarasını giriniz.." />
     <br />
 </div>
 
@@ -111,6 +119,19 @@
                 }
             });
 
+        });
+
+        $("#btndelete").click(x => {
+            let id = $("#inpexpid").val();
+            $.ajax({
+                url: "/ExperienceAjax/DeleteExperience/" + id,
+                type: "post",
+                contentType: "aplication/json",
+                dataType: "json",
+                success: function (funk3) {
+                    loadData();
+                }
+            });
         });
     </script>
 }
