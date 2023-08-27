@@ -18,5 +18,22 @@ namespace Core_Proje_Api.Controllers
             var c = new Context();
             return Ok(c.Categories.ToList());
         }
+
+        [HttpGet("{id}")]
+        public IActionResult CategoryGetByIdList(int id)
+        {
+            var c = new Context();
+            var value = c.Categories.Find(id);
+            if (value==null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(value);
+            }
+        }
+
+
     }
 }
