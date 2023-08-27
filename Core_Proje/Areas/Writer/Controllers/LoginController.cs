@@ -39,7 +39,7 @@ namespace Core_Proje.Areas.Writer.Controllers
                 if (result.Succeeded)
                 {
                     //yeni bir aksiyona yönlendir
-                    return RedirectToAction("Index", "Profile" );
+                    return Redirect("/Writer/DashboardWriter/Index");
                 }
                 else
                 {
