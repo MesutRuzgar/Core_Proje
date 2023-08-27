@@ -13,10 +13,12 @@ namespace Core_Proje.Controllers
     public class ProfileController : Controller
     {
         private readonly UserManager<WriterUser> _userManager;
+        private readonly SignInManager<WriterUser> _signInManager; // _signInManager sifre guncelenince otomatik cikis icin ekledik
 
-        public ProfileController(UserManager<WriterUser> userManager)
+        public ProfileController(UserManager<WriterUser> userManager, SignInManager<WriterUser> signInManager)
         {
             _userManager = userManager;
+            _signInManager = signInManager;
         }
 
         [HttpGet]
@@ -57,6 +59,7 @@ namespace Core_Proje.Controllers
             if (p.Password != null)
             {
                 user.PasswordHash = _userManager.PasswordHasher.HashPassword(user, p.Password);
+                await _signInManager.SignOutAsync();
             }
             var result = await _userManager.UpdateAsync(user);
             if (result.Succeeded)
