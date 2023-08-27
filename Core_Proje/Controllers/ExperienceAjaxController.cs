@@ -30,5 +30,11 @@ namespace Core_Proje.Controllers
             var values = JsonConvert.SerializeObject(p);
             return Json(values);
         }
+        public IActionResult GetById(int ExperienceId)
+        { 
+            //parametre db deki yaziyla birebir uyusmali
+            var values = JsonConvert.SerializeObject(experienceManager.TGetById(ExperienceId));
+            return Json(values);
+        }
     }
 }
