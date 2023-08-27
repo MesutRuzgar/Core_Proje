@@ -60,6 +60,7 @@ namespace Core_Proje.Controllers
             {
                 user.PasswordHash = _userManager.PasswordHasher.HashPassword(user, p.Password);
                 await _signInManager.SignOutAsync();
+                
             }
             var result = await _userManager.UpdateAsync(user);
             if (result.Succeeded)

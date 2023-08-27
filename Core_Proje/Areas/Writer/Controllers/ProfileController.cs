@@ -15,10 +15,12 @@ namespace Core_Proje.Areas.Writer.Controllers
     public class ProfileController : Controller
     {
         private readonly UserManager<WriterUser> _userManager;
+        private readonly SignInManager<WriterUser> _signInManager;
 
-        public ProfileController(UserManager<WriterUser> userManager)
+        public ProfileController(UserManager<WriterUser> userManager, SignInManager<WriterUser> signInManager)
         {
             _userManager = userManager;
+            _signInManager = signInManager;
         }
 
         [HttpGet]
@@ -60,11 +62,13 @@ namespace Core_Proje.Areas.Writer.Controllers
             if (p.Password !=null)
             {
                 user.PasswordHash = _userManager.PasswordHasher.HashPassword(user, p.Password);
+                await _signInManager.SignOutAsync();
+            
             }           
             var result = await _userManager.UpdateAsync(user);
             if (result.Succeeded)
             {
-                return RedirectToAction("Index", "Default");
+                return Redirect("/Writer/DashboardWriter/Index");
             }
             return View();
         }
