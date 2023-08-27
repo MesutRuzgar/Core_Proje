@@ -19,14 +19,11 @@
 </div>
 <br />
 <div class="col-md-12">
-        <input type="text" class="form-control" id="inpname" placeholder="Ad" />
+        <input type="text" class="form-control" id="inpname" placeholder="Başlık" />
         <br />
-        <input type="text" class="form-control" id="inpsurname" placeholder="Soyad" />
+        <input type="text" class="form-control" id="inpdate" placeholder="Firma adı ve giriş / çıkış tarihi" />
         <br />
-        <input type="text" class="form-control" id="inpusername" placeholder="Kullanıcı Adı" />
-        <br />
-        <input type="email" class="form-control" id="inpmaile" placeholder="Mail Adresi" />
-        <br />
+  
     </div>
 
 
@@ -66,6 +63,22 @@
             }
         });
     });
+
+        $("#btnadd").click(function () {
+            let values = {
+                Name: $("#inpname").val(),
+                Date: $("#inpdate").val()
+            };
+            $.ajax({
+                type: "Post",
+                url: "/ExperienceAjax/AddExperience",
+                data: values,
+                success: function (funk1) {
+                    let result = jQuery.parseJSON(funk1);
+                    alert(" Ekleme işlemi başarılı");
+                }
+            });
+        });
     </script>
 }
 @*yazdigimiz scriptin calismasi icin ekledik*@
