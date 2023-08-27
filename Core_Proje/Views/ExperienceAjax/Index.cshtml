@@ -65,7 +65,7 @@
                     //let ajax da/js de degisken tanimlamak icin kullanilir
                     //aldigimiz verileri jsona dondur dedik
                     let values = jQuery.parseJSON(funk);
-                    console.log(values);
+                  /*  console.log(values);*/
 
                     //veriler icin tablo olusturduk
                     let htmlst = "<table class=table table-bordered> <tr><th> Başlık </th> <th> Tarih </th></tr>";
@@ -111,7 +111,7 @@
                 success: function (funk2) {
 
                     let result = jQuery.parseJSON(funk2);
-                    console.log(result);
+                 /*   console.log(result);*/
 
                     let htmlst2 = `<table class=table table-hover> <tr> <th> Deneyim Numarası </th> <td>${result.ExperienceId}</td> </tr> <tr> <th> Başlık </th> <td>${result.Name}</td> </tr> <tr> <th> Firma / Tarih </th> <td>${result.Date}</td> </tr> </table> `;
 

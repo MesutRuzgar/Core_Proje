@@ -14,7 +14,7 @@
 
     <!-- Navbar partial -->
     @await Html.PartialAsync("NavbarPartial")
-    
+
 
     <div class="page-content">
         <div id="content">
@@ -44,7 +44,7 @@
 
                         @await Html.PartialAsync("/Views/Default/SendMessage.cshtml")
 
-                       
+
 
                         @await Component.InvokeAsync("ContactDetails")
 
@@ -67,7 +67,8 @@
                     <div class="text-small text-secondary">
                         <div class="mb-1">&copy; @DateTime.Now.Year Tüm sakları saklıdır.</div>
                         <!--<div>-->
-                            <!-- Make sure to buy a license for the template before removing the line below. Buy license on https://templateflip.com/ --><!--Design - <a href="https://templateflip.com/" target="_blank">TemplateFlip</a>
+                        <!-- Make sure to buy a license for the template before removing the line below. Buy license on https://templateflip.com/ -->
+                        <!--Design - <a href="https://templateflip.com/" target="_blank">TemplateFlip</a>
                         </div>-->
                     </div>
                 </div>
@@ -82,5 +83,27 @@
     <script src="~/Template/scripts/bootstrap.bundle.min.js?ver=1.2.0"></script>
     <script src="~/Template/scripts/aos.min.js?ver=1.2.0"></script>
     <script src="~/Template/scripts/main.js?ver=1.2.0"></script>
+
+
+
+        <script>
+            $("#btnsend").click(function () {
+                let values = {
+                    Name: $("#inpname").val(),
+                    Mail: $("#inpemail").val(),
+                    Content: $("#inpmessage").val()
+                };
+                $.ajax({
+                    type: "Post",
+                    url: "/Default/SendMessageAjax/",
+                    data: values,
+                    success: function (response) {
+                      /*  console.log(response);*/
+                        alert("Mesaj başarıyla gönderildi");
+                    }
+                });
+            });
+        </script>
+  
 </body>
 </html>

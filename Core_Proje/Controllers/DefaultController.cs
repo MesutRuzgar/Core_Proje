@@ -66,8 +66,8 @@ namespace Core_Proje.Controllers
         {
             MessageManager messageManager = new MessageManager(new EfMessageDal());
 
-            //p.Date = Convert.ToDateTime(DateTime.Now.ToShortDateString());
-            //p.Status = true;
+            p.Date = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+            p.Status = true;
             messageManager.TAdd(p);
             var values = JsonConvert.SerializeObject(p);
             return Json(values);

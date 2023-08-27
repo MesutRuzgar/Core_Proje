@@ -36,15 +36,15 @@ namespace Core_Proje.Areas.Writer.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 WriterUser w = new WriterUser()
                 {
                     Name = p.Name,
                     Surname = p.Surname,
                     UserName = p.UserName,
-                    Email = p.Mail,
-                    ImageUrl = p.ImageUrl
-
+                    Email = p.Mail,                   
                 };
+
                 //async değere atatık createasync ise yeni bir hesap olusturmak icin identity
                 //kutuphanesinden yararlanındı
                 if (p.ConfrimPassword == p.Password)
