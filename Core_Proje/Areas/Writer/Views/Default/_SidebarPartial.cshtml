@@ -6,6 +6,29 @@
                 <span class="menu-title">Gösterge Paneli</span>
             </a>
         </li>
+        @if (User.IsInRole("Admin"))
+        {
+            <li class="nav-item">
+                <a class="nav-link" href="/Default/Index/">
+                    <i class="mdi mdi-web  menu-icon"></i>
+                    <span class="menu-title">Siteye Git</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Dashboard/Index/">
+                    <i class="mdi mdi-worker  menu-icon"></i>
+                    <span class="menu-title">Admin Paneli</span>
+                </a>
+            </li>
+        }
+
+        <li class="nav-item">
+            <a class="nav-link" href="/Writer/Message/SendMessage">
+                <i class="mdi mdi-contact-mail  menu-icon"></i>
+                <span class="menu-title">Yeni Mesaj</span>
+            </a>
+
+        </li>
         <li class="nav-item">
             <a class="nav-link" href="/Writer/Message/ReceiverMessage">
                 <i class="mdi mdi-email-open  menu-icon"></i>
@@ -21,15 +44,6 @@
             </a>
 
         </li>
-
-        <li class="nav-item">
-            <a class="nav-link" href="/Writer/Message/SendMessage">
-                <i class="mdi mdi-contact-mail  menu-icon"></i>
-                <span class="menu-title">Yeni Mesaj</span>
-            </a>
-
-        </li>
- 
 
         <li class="nav-item">
             <a class="nav-link" href="/Writer/Default/Index">
