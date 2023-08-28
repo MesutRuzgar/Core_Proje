@@ -4,50 +4,75 @@
     Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        select {
+            color: white !important;
+        }
+    </style>
+</head>
+
+<body>
 
 
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Proje Ekleme</h4>
+                <form method="post" class="forms-sample">
+                    <div class="form-group">
+                        <label>Proje</label>
+                        <input type="text" name="Name" class="form-control" placeholder="Proje Adı Giriniz" />
+                        @Html.ValidationMessageFor(x => x.Name, null, new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword4">Platform</label>
+                        <select typeof="text" class="form-control" name="Platform">
 
-<div class="col-12 grid-margin stretch-card">
-    <div class="card">
-        <div class="card-body">
-            <h4 class="card-title">Proje Ekleme</h4>
-            <form method="post" class="forms-sample">
-                <div class="form-group">
-                    <label>Proje</label>
-                    <input type="text" name="Name" class="form-control" placeholder="Proje Adı Giriniz" />
-                    @Html.ValidationMessageFor(x => x.Name, null, new { @class = "text-danger" })
-                </div>
-                <div class="form-group">
-                    <label>Küçük Resim</label>
-                    <input type="text" name="ImageUrl" class="form-control" placeholder="Cv sayfasında görünecek resim">
-                    @Html.ValidationMessageFor(x => x.ImageUrl, null, new { @class = "text-danger" })
-                </div>
-                <div class="form-group">
-                    <label>Büyük Resim</label>
-                    <input type="text" name="ImageUrl2" class="form-control" placeholder="Cv sayfasında tıklanıldığında açılacak resim">
-                    @Html.ValidationMessageFor(x => x.ImageUrl2, null, new { @class = "text-danger" })
-                </div>
-                <div class="form-group">
-                    <label>Proje Adresi</label>
-                    <input type="text" name="ProjectUrl" class="form-control" placeholder="Projeye ait link">
-                </div>
-                <div class="form-group">
-                    <label>Ücret</label>
-                    <input type="text" name="Price" class="form-control" placeholder="Projeye ücreti, Örn. $2000 USD">
-                    @Html.ValidationMessageFor(x => x.Price, null, new { @class = "text-danger" })
-                </div>
-                <div class="form-group">
-                    <label>İlerleme (%)</label>
-                    <input type="text" name="Value" class="form-control" placeholder="Örn. 65">
-                    @Html.ValidationMessageFor(x => x.Value, null, new { @class = "text-danger" })
+                            <option value="/argon-dashboard-master/assets/img/theme/c-sharp.svg">C#</option>
+                            <option value="/argon-dashboard-master/assets/img/theme/windowsForm.png">Windows Form</option>
+                            <option value="/argon-dashboard-master/assets/img/theme/angular.jpg">Angular</option>
+                            <option value="/argon-dashboard-master/assets/img/theme/bootstrap.jpg">Bootstrap</option>
+                            <option value="/argon-dashboard-master/assets/img/theme/react.jpg">React</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Küçük Resim</label>
+                        <input type="text" name="ImageUrl" class="form-control" placeholder="Cv sayfasında görünecek resim">
+                        @Html.ValidationMessageFor(x => x.ImageUrl, null, new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label>Büyük Resim</label>
+                        <input type="text" name="ImageUrl2" class="form-control" placeholder="Cv sayfasında tıklanıldığında açılacak resim">
+                        @Html.ValidationMessageFor(x => x.ImageUrl2, null, new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label>Proje Adresi</label>
+                        <input type="text" name="ProjectUrl" class="form-control" placeholder="Projeye ait link">
+                    </div>
+                    <div class="form-group">
+                        <label>Ücret</label>
+                        <input type="text" name="Price" class="form-control" placeholder="Projeye ücreti, Örn. $2000 USD">
+                        @Html.ValidationMessageFor(x => x.Price, null, new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label>İlerleme (%)</label>
+                        <input type="text" name="Value" class="form-control" placeholder="Örn. 65">
+                        @Html.ValidationMessageFor(x => x.Value, null, new { @class = "text-danger" })
 
-                </div>
+                    </div>
 
 
-                <button type="submit" class="btn btn-success">Kaydet</button>
-                <a href="/Portfolio" class="btn btn-danger">İptal</a>
-            </form>
+                    <button type="submit" class="btn btn-success">Kaydet</button>
+                    <a href="/Portfolio" class="btn btn-danger">İptal</a>
+                </form>
 
+            </div>
         </div>
     </div>
-</div>
+
+</body>
+</html>

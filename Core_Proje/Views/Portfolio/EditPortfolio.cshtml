@@ -5,59 +5,79 @@
     Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        select {
+            color: white !important;
+        }
+    </style>
+</head>
+
+<body>
 
 
-<div class="col-12 grid-margin stretch-card">
-    <div class="card">
-        <div class="card-body">
-            <h4 class="card-title">Proje Güncelleme</h4>
-            <form class="forms-sample" method="post">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Proje Güncelleme</h4>
+                <form class="forms-sample" method="post">
 
 
-                @Html.HiddenFor(model => model.PortfolioId)
-                <div class="form-group">
-                    <label for="exampleInputName1">Proje</label>
-                    <input type="text" name="Name" class="form-control" value="@Model.Name" />
-                    @Html.ValidationMessageFor(x => x.Name, null, new { @class = "text-danger" })
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputName1">Platform</label>
-                    <input type="text" name="Platform" class="form-control" value="@Model.Platform" />
-                   
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail3">Küçük Resim</label>
-                    <input type="text" name="ImageUrl" class="form-control" value="@Model.ImageUrl">
-                    @Html.ValidationMessageFor(x => x.ImageUrl, null, new { @class = "text-danger" })
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail3">Büyük Resim</label>
-                    <input type="text" name="ImageUrl2" class="form-control" value="@Model.ImageUrl2">
-                    @Html.ValidationMessageFor(x => x.ImageUrl2, null, new { @class = "text-danger" })
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail3">Proje Linki</label>
-                    <input type="text" name="ProjectUrl" class="form-control" value="@Model.ProjectUrl">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail3">Ücret</label>
-                    <input type="text" name="Price" class="form-control" value="@Model.Price">
-                    @Html.ValidationMessageFor(x => x.Price, null, new { @class = "text-danger" })
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail3">İlerleme (%)</label>
-                    <input type="text" name="Value" class="form-control" value="@Model.Value">
+                    @Html.HiddenFor(model => model.PortfolioId)
+                    <div class="form-group">
+                        <label for="exampleInputName1">Proje</label>
+                        <input type="text" name="Name" class="form-control" value="@Model.Name" />
+                        @Html.ValidationMessageFor(x => x.Name, null, new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword4">Platform</label>
+                        <select typeof="text" class="form-control" name="Platform" >
 
-                    @Html.ValidationMessageFor(x => x.Value, null, new { @class = "text-danger" })
-                </div>
+                            <option value="/argon-dashboard-master/assets/img/theme/c-sharp.svg">C#</option>
+                            <option value="/argon-dashboard-master/assets/img/theme/windowsForm.png">Windows Form</option>
+                            <option value="/argon-dashboard-master/assets/img/theme/angular.jpg">Angular</option>
+                            <option value="/argon-dashboard-master/assets/img/theme/bootstrap.jpg">Bootstrap</option>
+                            <option value="/argon-dashboard-master/assets/img/theme/react.jpg">React</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail3">Küçük Resim</label>
+                        <input type="text" name="ImageUrl" class="form-control" value="@Model.ImageUrl">
+                        @Html.ValidationMessageFor(x => x.ImageUrl, null, new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail3">Büyük Resim</label>
+                        <input type="text" name="ImageUrl2" class="form-control" value="@Model.ImageUrl2">
+                        @Html.ValidationMessageFor(x => x.ImageUrl2, null, new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail3">Proje Linki</label>
+                        <input type="text" name="ProjectUrl" class="form-control" value="@Model.ProjectUrl">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail3">Ücret</label>
+                        <input type="text" name="Price" class="form-control" value="@Model.Price">
+                        @Html.ValidationMessageFor(x => x.Price, null, new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail3">İlerleme (%)</label>
+                        <input type="text" name="Value" class="form-control" value="@Model.Value">
+
+                        @Html.ValidationMessageFor(x => x.Value, null, new { @class = "text-danger" })
+                    </div>
 
 
-                <button type="submit" class="btn btn-success">Kaydet</button>
-                <a href="/Portfolio" class="btn btn-youtube">İptal</a>
-            </form>
+                    <button type="submit" class="btn btn-success">Kaydet</button>
+                    <a href="/Portfolio" class="btn btn-youtube">İptal</a>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
+</body>
+</html>
 
 
