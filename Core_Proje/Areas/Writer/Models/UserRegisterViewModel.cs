@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -15,8 +17,9 @@ namespace Core_Proje.Areas.Writer.Models
 
         [Required(ErrorMessage ="Lütfen Kullanıcı Adını Giriniz")]
         public string UserName { get; set; }
-        [Required(ErrorMessage = "Lütfen Resim Ekleyiniz")]
+       
         public string ImageUrl { get; set; }
+        public IFormFile Picture { get; set; }
         [Required(ErrorMessage = "Lütfen Şifreyi Giriniz")]
         public string Password { get; set; }
         [Required(ErrorMessage = "Lütfen Şifreyi Tekrar Giriniz")]

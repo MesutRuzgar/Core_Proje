@@ -30,7 +30,7 @@
                             </div>
                             <h4>Bir hesabın yok mu?</h4>
                             <h6 class="font-weight-light">Hemen sisteme kayıt yaptırabilirsin</h6>
-                            <form class="pt-3" method="post">
+                            <form class="pt-3" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label>Adınız</label>
                                     <span asp-validation-for="Name" class="text-danger"></span>
@@ -38,7 +38,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Soyadınız</label>
-                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                    <span asp-validation-for="Surname" class="text-danger"></span>
                                     <input type="text" class="form-control form-control-lg" asp-for="Surname" placeholder="Soyad">
                                 </div>
                                 <div class="form-group">
@@ -47,9 +47,8 @@
                                     <input type="text" class="form-control form-control-lg" asp-for="UserName" placeholder="Kullanıcı Adınız ">
                                 </div>
                                 <div class="form-group">
-                                    <label>Görsel</label>
-                                    <span asp-validation-for="ImageUrl" class="text-danger"></span>
-                                    <input type="text" class="form-control form-control-lg" asp-for="ImageUrl">
+                                    <label >Resim</label>
+                                    <input type="file" class="form-control form-control-lg" asp-for="Picture">
                                 </div>
                                 <div class="form-group">
                                     <label>Şifreniz</label>
