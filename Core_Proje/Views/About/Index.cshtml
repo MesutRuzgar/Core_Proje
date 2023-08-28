@@ -1,4 +1,4 @@
-﻿@model EntityLayer.Concrete.About
+﻿@model Core_Proje.Models.AboutEditViewModel
 
 @{
     ViewData["Title"] = "Index";
@@ -9,7 +9,7 @@
     <div class="card">
         <div class="card-body">
             <h4 class="card-title">Hakkımda Düzenleme Sayfası</h4>
-            <form class="forms-sample" method="post">
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
 
 
                 @Html.HiddenFor(model => model.AboutId)
@@ -39,7 +39,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail3">Resim</label>
-                    <input type="text" name="ImageUrl" class="form-control" value="@Model.ImageUrl">
+                    <input type="file" name="Picture">
                 </div>
 
 
