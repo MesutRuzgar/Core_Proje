@@ -1,38 +1,62 @@
 ﻿
-@{
-    ViewData["Title"] = "AddExperience";
-    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
-}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        select {
+            color: white !important;
+        }
+    </style>
+</head>
+
+<body>
 
 
-<div class="col-12 grid-margin stretch-card">
-    <div class="card">
-        <div class="card-body">
-            <h4 class="card-title">Deneyim Ekleme</h4>
-            <form method="post" class="forms-sample">
-                <div class="form-group">
-                    <label for="exampleInputName1">Başlık</label>
-                    <input type="text" class="form-control" name="Name" placeholder="Deneyim Adı Giriniz">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail3">Tarih</label>
-                    <input type="text" class="form-control" name="Date" placeholder="Örn. Veri Tabanı (2021-2023)">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword4">Resim Yolu</label>
-                    <input type="text" class="form-control" name="ImageUrl" >
-                </div>
-                <div class="form-group">
-                    <label for="exampleSelectGender">Açıklama</label>
-                    <input type="text" class="form-control" name="Description" placeholder="Kısaca özetleyeniz.">
-                        
-                </div>        
-                
-                <button type="submit" class="btn btn-success mr-2">Kaydet</button>
-                <a href="/Experience" class="btn btn-danger">İptal</a>
-            </form>
+
+    @{
+        ViewData["Title"] = "AddExperience";
+        Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+    }
+
+
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Deneyim Ekleme</h4>
+                <form method="post" class="forms-sample">
+                    <div class="form-group">
+                        <label for="exampleInputName1">Başlık</label>
+                        <input type="text" class="form-control" name="Name" placeholder="Deneyim Adı Giriniz">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail3">Tarih</label>
+                        <input type="text" class="form-control" name="Date" placeholder="Örn. Veri Tabanı (2021-2023)">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword4">Platform</label>
+                        <select typeof="text" class="form-control" name="ImageUrl">
+
+                            <option value="/Template/images/services/windows-form.svg">C#</option>
+                            <option value="/Template/images/services/veri-tabani.svg">SQL</option>
+                            <option value="/Template/images/services/back-end.svg">Back-End</option>
+                            <option value="/Template/images/services/web-gelistirme.svg">Web Geliştirme</option>
+                            <option value="/Template/images/services/windows-form.svg">Mobil Uygulama Geliştirme </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleSelectGender">Açıklama</label>
+                        <input type="text" class="form-control" name="Description" placeholder="Kısaca özetleyeniz.">
+
+                    </div>
+
+                    <button type="submit" class="btn btn-success mr-2">Kaydet</button>
+                    <a href="/Experience" class="btn btn-danger">İptal</a>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
 
+</body>
+</html>
