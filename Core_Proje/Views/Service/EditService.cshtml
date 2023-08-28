@@ -5,33 +5,51 @@
     Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        select {
+            color: white !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Hizmet Güncelleme</h4>
+                <form class="forms-sample" method="post">
 
 
-<div class="col-12 grid-margin stretch-card">
-    <div class="card">
-        <div class="card-body">
-            <h4 class="card-title">Hizmet Güncelleme</h4>
-            <form class="forms-sample" method="post">
+                    @Html.HiddenFor(model => model.ServiceId)
+                    <div class="form-group">
+                        <label for="exampleInputName1">Başlık</label>
+                        <input type="text" name="Title" class="form-control" value="@Model.Title" />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword4">Platform</label>
+                        <select typeof="text" class="form-control" name="ImageUrl">
+
+                            <option value="/Template/images/services/windows-form.svg">C#</option>
+                            <option value="/Template/images/services/veri-tabani.svg">SQL</option>
+                            <option value="/Template/images/services/back-end.svg">Back-End</option>
+                            <option value="/Template/images/services/web-gelistirme.svg">Web Geliştirme</option>
+                            <option value="/Template/images/services/windows-form.svg">Mobil Uygulama Geliştirme </option>
+                        </select>
+                    </div>
 
 
-                @Html.HiddenFor(model => model.ServiceId)
-                <div class="form-group">
-                    <label for="exampleInputName1">Başlık</label>
-                    <input type="text" name="Title" class="form-control" value="@Model.Title" />
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail3">Resim Yolu</label>
-                    <input type="text" name="ImageUrl" class="form-control" value="@Model.ImageUrl">
-                </div>
-
-
-
-                <button type="submit" class="btn btn-warning mr-2">Güncelle</button>
-                <a href="/Service" class="btn btn-danger">İptal</a>
-            </form>
+                    <button type="submit" class="btn btn-warning mr-2">Güncelle</button>
+                    <a href="/Service" class="btn btn-danger">İptal</a>
+                </form>
+            </div>
         </div>
     </div>
-</div>
-
+</body>
+</html>
 
 

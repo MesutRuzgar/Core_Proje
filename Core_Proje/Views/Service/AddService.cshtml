@@ -4,24 +4,46 @@
     Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="col-12 grid-margin stretch-card">
-    <div class="card">
-        <div class="card-body">
-            <h4 class="card-title">Hizmet Ekleme</h4>
-            <form method="post">
-                <div class="form-group">
-                    <label>Hizmet Başlığı</label>
-                    <input type="text" name="Title" class="form-control" placeholder="Hizmet Adı Giriniz" />
-                </div>
-                <div class="form-group">
-                    <label>Resim Yolu</label>
-                    <input type="text" name="ImageUrl" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-success">Kaydet</button>
-                <a href="/Service" class="btn btn-danger">İptal</a>
-            </form>
+<head>
+    <style>
+        select {
+            color: white !important;
+        }
+    </style>
+</head>
 
+<body>
+
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Hizmet Ekleme</h4>
+                <form method="post">
+                    <div class="form-group">
+                        <label>Hizmet Başlığı</label>
+                        <input type="text" name="Title" class="form-control" placeholder="Hizmet Adı Giriniz" />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword4">Platform</label>
+                        <select typeof="text" class="form-control" name="ImageUrl">
+
+                            <option value="/Template/images/services/windows-form.svg">C#</option>
+                            <option value="/Template/images/services/veri-tabani.svg">SQL</option>
+                            <option value="/Template/images/services/back-end.svg">Back-End</option>
+                            <option value="/Template/images/services/web-gelistirme.svg">Web Geliştirme</option>
+                            <option value="/Template/images/services/windows-form.svg">Mobil Uygulama Geliştirme </option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-success">Kaydet</button>
+                    <a href="/Service" class="btn btn-danger">İptal</a>
+                </form>
+
+            </div>
         </div>
     </div>
-</div>
+
+</body>
+</html>
