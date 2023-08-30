@@ -151,9 +151,7 @@ namespace Core_Proje.Controllers
                 if (existingPortfolio != null)
                 {
                     existingPortfolio.Name = viewModel.Name;
-                    existingPortfolio.ImageUrl = viewModel.ImageUrl;
                     existingPortfolio.ProjectUrl = viewModel.ProjectUrl;
-                    existingPortfolio.ImageUrl2 = viewModel.ImageUrl2;
                     existingPortfolio.Platform = viewModel.Platform;
                     existingPortfolio.Price = viewModel.Price;
                     existingPortfolio.Status = viewModel.Status;

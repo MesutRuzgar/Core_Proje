@@ -1,6 +1,9 @@
 ﻿@using EntityLayer.Concrete
 @model List<Portfolio>
 
+
+
+
 <div class="section px-2 px-lg-4 pt-5" id="portfolio">
     <div class="container">
         <div class="text-center mb-5">
@@ -10,20 +13,24 @@
             <div class="grid-sizer"></div>
             @foreach (var item in Model)
             {
-                <div class="grid-item">
-                    <a href="@item.ProjectUrl">
-                        <figure class="portfolio-item">
-                            <img src="~/projectimage/@item.ImageUrl" data-bp="/projectimage/@item.ImageUrl2" />
-                            <figcaption>
-                                <h4 class="h5 mb-0">@item.Name</h4>
-                                <div>@item.ProjectUrl</div>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </div>
+
+
+        <a href="@item.ProjectUrl">
+            <div class="grid-item">
+                <figure class="portfolio-item">
+                    <img src="@(!string.IsNullOrEmpty(item.ImageUrl) ? "/projectimage/" + item.ImageUrl : "/projectimage/default-mini.jpg")" data-bp="@(!string.IsNullOrEmpty(item.ImageUrl2) ? "/projectimage/" + item.ImageUrl2 : "/projectimage/default.png")" style="width:300px; height:200px;" />
+                    <figcaption>
+                        <h4 class="h5 mb-0">@item.Name</h4>
+                        <div>@item.ProjectUrl</div>
+                    </figcaption>
+                </figure>
+            </div>
+        </a>
+
 
             }
 
         </div>
     </div>
 </div>
+
