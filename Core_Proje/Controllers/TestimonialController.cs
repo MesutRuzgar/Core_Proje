@@ -33,13 +33,34 @@ namespace Core_Proje.Controllers
         {
 
             var values = testimonialManager.TGetById(id);
-            return View(values);
+            TestimonialViewModel testimonialViewModel = new TestimonialViewModel
+            {
+                TestimonialId=values.TestimonialId,
+                ClientName = values.ClientName,
+                Company = values.Company,
+                Comment = values.Comment,
+                ImageUrl = values.ImageUrl
+            };
+            return View(testimonialViewModel);
 
         }
         [HttpPost]
-        public IActionResult EditTestimonial(Testimonial testimonial)
+        public async Task<IActionResult> EditTestimonial(TestimonialViewModel p)
         {
-            testimonialManager.TUpdate(testimonial);
+            Testimonial existingTestimonial = testimonialManager.TGetById(p.TestimonialId);
+            if (existingTestimonial!=null)
+            {
+                existingTestimonial.ClientName = p.ClientName;
+                existingTestimonial.Comment = p.Comment;
+                existingTestimonial.Company = p.Company;
+            }
+            if (p.Picture!=null)
+            {
+                var imageName = await UploadImage(p.Picture);
+                existingTestimonial.ImageUrl = imageName;
+            }
+        
+            testimonialManager.TUpdate(existingTestimonial);
             return RedirectToAction("Index");
         }
 

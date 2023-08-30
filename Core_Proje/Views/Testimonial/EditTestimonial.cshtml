@@ -1,4 +1,4 @@
-﻿@model EntityLayer.Concrete.Testimonial
+﻿@model Core_Proje.Models.TestimonialViewModel
 
 @{
     ViewData["Title"] = "EditTestimonial";
@@ -11,7 +11,7 @@
     <div class="card">
         <div class="card-body">
             <h4 class="card-title">Refarans Detayları</h4>
-            <form class="forms-sample" method="post">
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
 
 
                 @Html.HiddenFor(model => model.TestimonialId)
@@ -19,9 +19,9 @@
                     <label for="exampleInputName1">Ad Soyad</label>
                     <input type="text" name="ClientName" class="form-control" value="@Model.ClientName" />
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputName1">Resim</label>
-                    <input type="text" name="ImageUrl" class="form-control" value="@Model.ImageUrl" />
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Resim</label>
+                    <input class="form-control" type="file" id="formFile" name="Picture">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail3">Şirket</label>
