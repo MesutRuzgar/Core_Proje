@@ -94,39 +94,106 @@ namespace Core_Proje.Controllers
         {
             
             var values = portfolioManager.TGetById(id);
-            return View(values);
+            PortfolioViewModel viewModel = new PortfolioViewModel
+            {
+                PortfolioId = values.PortfolioId,
+                Name = values.Name,
+                ImageUrl = values.ImageUrl,
+                ProjectUrl = values.ProjectUrl,
+                ImageUrl2 = values.ImageUrl2,
+                Platform = values.Platform,
+                Price = values.Price,
+                Status = values.Status,
+                Value = values.Value
+            };
+
+            return View(viewModel);
 
         }
 
-       
+
+        //[HttpPost]
+        //public IActionResult EditPortfolio(Portfolio portfolio)
+        //{
+        //    PortfolioValidator validations = new PortfolioValidator();
+        //    ValidationResult result = validations.Validate(portfolio);
+        //    if (result.IsValid)
+        //    {
+        //        if (portfolio.Value >= 100)
+        //        {
+        //            portfolio.Status = true;
+        //        }
+        //        else
+        //        {
+        //            portfolio.Status = false;
+        //        }
+        //        portfolioManager.TUpdate(portfolio);
+        //        return RedirectToAction("Index");
+        //    }
+        //    else
+        //    {
+        //        foreach (var item in result.Errors)
+        //        {
+        //            ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+        //        }
+        //    }
+
+        //    return View(portfolio);
+        //}
+
         [HttpPost]
-        public IActionResult EditPortfolio(Portfolio portfolio)
+        public async Task<IActionResult> EditPortfolio(PortfolioViewModel viewModel)
         {
-            PortfolioValidator validations = new PortfolioValidator();
-            ValidationResult result = validations.Validate(portfolio);
-            if (result.IsValid)
+            if (ModelState.IsValid)
             {
-                if (portfolio.Value >= 100)
+                Portfolio existingPortfolio = portfolioManager.TGetById(viewModel.PortfolioId);
+
+                if (existingPortfolio != null)
                 {
-                    portfolio.Status = true;
+                    existingPortfolio.Name = viewModel.Name;
+                    existingPortfolio.ImageUrl = viewModel.ImageUrl;
+                    existingPortfolio.ProjectUrl = viewModel.ProjectUrl;
+                    existingPortfolio.ImageUrl2 = viewModel.ImageUrl2;
+                    existingPortfolio.Platform = viewModel.Platform;
+                    existingPortfolio.Price = viewModel.Price;
+                    existingPortfolio.Status = viewModel.Status;
+                    existingPortfolio.Value = viewModel.Value;
+
+                    if (viewModel.Picture != null)
+                    {
+                        var imageName1 = await UploadImage(viewModel.Picture);
+                        existingPortfolio.ImageUrl = imageName1;
+                    }
+
+                    if (viewModel.Picture2 != null)
+                    {
+                        var imageName2 = await UploadImage(viewModel.Picture2);
+                        existingPortfolio.ImageUrl2 = imageName2;
+                    }
+
+                    if (existingPortfolio.Value >= 100)
+                    {
+                        existingPortfolio.Status = true;
+                    }
+                    else
+                    {
+                        existingPortfolio.Status = false;
+                    }
+
+                    portfolioManager.TUpdate(existingPortfolio);
+                    return RedirectToAction("Index");
                 }
                 else
                 {
-                    portfolio.Status = false;
-                }
-                portfolioManager.TUpdate(portfolio);
-                return RedirectToAction("Index");
-            }
-            else
-            {
-                foreach (var item in result.Errors)
-                {
-                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                    // Hata durumu: Geçerli portföy bulunamadı.
+                    // Burada hata mesajı oluşturabilir veya yönlendirme yapabilirsiniz.
                 }
             }
 
-            return View(portfolio);
+            return View(viewModel); // Model geçersiz olduğunda
         }
+
+
 
         private async Task<string> UploadImage(IFormFile picture)
         {

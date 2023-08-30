@@ -1,4 +1,4 @@
-﻿@model EntityLayer.Concrete.Portfolio
+﻿@model Core_Proje.Models.PortfolioViewModel
 
 @{
     ViewData["Title"] = "EditPortfolio";
@@ -23,7 +23,7 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Proje Güncelleme</h4>
-                <form class="forms-sample" method="post">
+                <form class="forms-sample" method="post" enctype="multipart/form-data">
 
 
                     @Html.HiddenFor(model => model.PortfolioId)
@@ -43,15 +43,13 @@
                             <option value="/argon-dashboard-master/assets/img/theme/react.jpg">React</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail3">Küçük Resim</label>
-                        <input type="text" name="ImageUrl" class="form-control" value="@Model.ImageUrl">
-                        @Html.ValidationMessageFor(x => x.ImageUrl, null, new { @class = "text-danger" })
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">Ana sitedeki tanıtım kartında görünecek resim</label>
+                        <input class="form-control" type="file" id="formFile1" name="Picture">
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail3">Büyük Resim</label>
-                        <input type="text" name="ImageUrl2" class="form-control" value="@Model.ImageUrl2">
-                        @Html.ValidationMessageFor(x => x.ImageUrl2, null, new { @class = "text-danger" })
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">Ana sitedeki büyük resim</label>
+                        <input class="form-control" type="file" id="formFile2" name="Picture2">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail3">Proje Linki</label>
