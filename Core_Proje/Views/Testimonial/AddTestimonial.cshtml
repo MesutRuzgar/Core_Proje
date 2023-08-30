@@ -8,7 +8,7 @@
     <div class="card">
         <div class="card-body">
             <h4 class="card-title">Referans Ekleme</h4>
-            <form method="post" class="forms-sample">
+            <form method="post" class="forms-sample" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="exampleInputName1">Ad Soyad</label>
                     <input type="text" class="form-control" name="ClientName" placeholder="Referansınızın adı soyadı">
@@ -21,11 +21,10 @@
                     <label for="exampleInputEmail3">Yorum</label>
                     <input type="text" class="form-control" name="Comment" placeholder="Refaransınızın hakkınızdaki yorumu">
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail3">Resim</label>
-                    <input type="text" class="form-control" name="ImageUrl" >
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Resim</label>
+                    <input class="form-control" type="file" id="formFile" name="Picture">
                 </div>
-
                 <button type="submit" class="btn btn-success mr-2">Kaydet</button>
                 <a href="/Testimonial" class="btn btn-danger">İptal</a>
             </form>
