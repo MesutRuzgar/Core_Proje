@@ -1,5 +1,4 @@
-﻿@using EntityLayer.Concrete
-@model List<WriterMessage>
+﻿@model List<Core_Proje.Models.UserMessageViewModel>
 
 @{
     ViewData["Title"] = "ReceiverMessageList";
@@ -19,25 +18,35 @@
                 <table class="table">
                     <thead>
                         <tr>
-
+                            <th>Resim</th>
                             <th>Gönderen</th>
                             <th>Konu</th>
                             <th>Tarih</th>
-                            
+
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            <tr>
+                        <tr>
+                            <td>
+                                @if (item.ImageUrl == null)
+                                {
+                                    <img src="/userimage/default.png" alt="image" class="rounded-circle profile-pic"> 
+                                }
+                                else
+                                {
+                                     <img src="/userimage/@item.ImageUrl" alt="image" class="rounded-circle profile-pic">
+                                }
 
-                                <td>@item.SenderName</td>
-                                <td>@item.Subject</td>
-                                <td>@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</td>
+                            </td>
+                            <td>@item.SenderName</td>
+                            <td>@item.Subject</td>
+                            <td>@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</td>
 
-                                <td><a href="/AdminMessage/ReceiverMessageDetails/@item.WriterMessageId" class="btn btn-warning">Mesajı Gör</a></td>
-                                <td><a href="/AdminMessage/DeleteMessage/@item.WriterMessageId" class="btn btn-danger">Mesajı Sil</a></td>
-                            </tr>
+                            <td><a href="/AdminMessage/ReceiverMessageDetails/@item.WriterMessageId" class="btn btn-warning">Mesajı Gör</a></td>
+                            <td><a href="/AdminMessage/DeleteMessage/@item.WriterMessageId" class="btn btn-danger">Mesajı Sil</a></td>
+                        </tr>
                         }
                     </tbody>
                 </table>

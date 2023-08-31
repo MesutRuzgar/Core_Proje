@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concrete;
+using Core_Proje.Models;
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
@@ -20,8 +21,10 @@ namespace Core_Proje.Controllers
             string p;
             p = "deneme@deneme.com";
             var values = writerMessageManager.GetListReceiverMessage(p);
-            return View(values);
+            List<UserMessageViewModel> messageReceiverViewModels = ViewMessage(values);
+            return View(messageReceiverViewModels);
         }
+
         public IActionResult SenderMessageList()
         {
             string p;
@@ -77,5 +80,29 @@ namespace Core_Proje.Controllers
             writerMessageManager.TAdd(p);           
             return RedirectToAction("SenderMessageList");
         }
+
+        private static List<UserMessageViewModel> ViewMessage(List<WriterMessage> values)
+        {
+            Context c = new Context();
+            List<UserMessageViewModel> messageViewModels = new List<UserMessageViewModel>();
+            foreach (var item in values)
+            {
+                var user = c.Users.Where(x => x.Email == item.Sender).FirstOrDefault();
+                var model = new UserMessageViewModel
+                {
+                    ImageUrl = user.ImageUrl,
+                    Date = item.Date,
+                    MessageContent = item.MessageContent,
+                    SenderName = item.SenderName,
+                    WriterMessageId = item.WriterMessageId,
+                    Subject=item.Subject
+                };
+                messageViewModels.Add(model);
+
+            }
+
+            return messageViewModels;
+        }
+
     }
 }
