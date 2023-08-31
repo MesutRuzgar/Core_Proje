@@ -10,6 +10,7 @@ namespace Core_Proje.Models
     {
         public int WriterMessageId { get; set; }
         public string SenderName { get; set; }
+        public string ReceiverName { get; set; }
         public string MessageContent { get; set; }
         public string Subject { get; set; }
         public DateTime Date { get; set; }

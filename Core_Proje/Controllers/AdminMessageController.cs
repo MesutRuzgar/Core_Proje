@@ -30,7 +30,9 @@ namespace Core_Proje.Controllers
             string p;
             p = "deneme@deneme.com";
             var values = writerMessageManager.GetListSenderMessage(p);
-            return View(values);
+            List<UserMessageViewModel> messageSenderViewModels = ViewSenderMessage(values);
+            return View(messageSenderViewModels);
+           
         }
         public IActionResult ReceiverMessageDetails(int id)
         {
@@ -95,7 +97,30 @@ namespace Core_Proje.Controllers
                     MessageContent = item.MessageContent,
                     SenderName = item.SenderName,
                     WriterMessageId = item.WriterMessageId,
-                    Subject=item.Subject
+                    Subject=item.Subject,
+                };
+                messageViewModels.Add(model);
+
+            }
+
+            return messageViewModels;
+        }
+        private static List<UserMessageViewModel> ViewSenderMessage(List<WriterMessage> values)
+        {
+            Context c = new Context();
+            List<UserMessageViewModel> messageViewModels = new List<UserMessageViewModel>();
+            foreach (var item in values)
+            {
+                var user = c.Users.Where(x => x.Email == item.Receiver).FirstOrDefault();
+                var model = new UserMessageViewModel
+                {
+                    ImageUrl = user.ImageUrl,
+                    Date = item.Date,
+                    MessageContent = item.MessageContent,
+                    SenderName = item.SenderName,
+                    WriterMessageId = item.WriterMessageId,
+                    Subject = item.Subject,
+                    ReceiverName = item.ReceiverName
                 };
                 messageViewModels.Add(model);
 
