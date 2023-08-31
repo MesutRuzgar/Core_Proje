@@ -1,5 +1,4 @@
-﻿@using EntityLayer.Concrete
-@model List<WriterMessage>
+﻿@model List<Core_Proje.Models.UserMessageViewModel>
 
 <li class="nav-item dropdown border-left">
     <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
@@ -13,10 +12,21 @@
         {
             <a class="dropdown-item preview-item" href="/AdminMessage/ReceiverMessageDetails/@item.WriterMessageId">
                 <div class="preview-thumbnail">
-                    <img src="~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/images/faces/face4.jpg" alt="image" class="rounded-circle profile-pic">
+                    @if (item.ImageUrl == null)
+                    {
+                         <img src="/userimage/default.png" alt="image" class="rounded-circle profile-pic"> 
+                    }
+                     else
+                    {
+                          <img src="/userimage/@item.ImageUrl" alt="image" class="rounded-circle profile-pic">
+                    }
+
                 </div>
                 <div class="preview-item-content">
                     <p class="preview-subject ellipsis mb-1">"@item.SenderName" bir mesaj gönderdi </p>
+                    <br />
+                    <p class="text-muted ellipsis mb-0"> @item.MessageContent </p> 
+                    <br />
                     <p class="text-muted mb-0"> @(((DateTime)item.Date).ToString("dd-MMM-yyyy")) </p>
                 </div>
             </a>
