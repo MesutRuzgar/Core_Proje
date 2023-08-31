@@ -21,6 +21,7 @@ namespace Core_Proje.Areas.Writer.WiewComponents
         {
             var values = await _userManager.FindByNameAsync(User.Identity.Name);
             ViewBag.v = values.ImageUrl;
+            ViewBag.v2 = values.Name + " " + values.Surname;
             return View();
         }
     }

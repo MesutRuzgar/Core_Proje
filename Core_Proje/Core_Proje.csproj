@@ -2019,7 +2019,6 @@
     <Folder Include="Areas\Writer\Data\" />
     <Folder Include="wwwroot\testimonialimage\" />
     <Folder Include="wwwroot\projectimage\" />
-    <Folder Include="wwwroot\userimage\" />
     <Folder Include="wwwroot\skydash\.git\objects\info\" />
     <Folder Include="wwwroot\skydash\.git\objects\pack\" />
     <Folder Include="wwwroot\skydash\.git\refs\tags\" />
