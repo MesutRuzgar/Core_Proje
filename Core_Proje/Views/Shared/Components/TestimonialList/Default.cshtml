@@ -16,7 +16,18 @@
                         <div class="text-end me-2">
                             <div class="fw-bolder">@item.ClientName</div>
                             <div class="text-small">@item.Company</div>
-                        </div><img class="me-md-3 rounded" src="/testimonialimage/@item.ImageUrl" width="96" height="96" alt="client 1" />
+                        </div>
+                        @if (item.ImageUrl == null)
+                        {
+                            <img src="/testimonialimage/default.jpg" alt="image" style="width:96px; height:96px;" />
+                        }
+                        else
+                        {
+                            <img src="/testimonialimage/@item.ImageUrl" alt="image" style="width:96px; height:96px;" />
+                        }
+
+
+                        
                     </div>
                 </div>
             }
