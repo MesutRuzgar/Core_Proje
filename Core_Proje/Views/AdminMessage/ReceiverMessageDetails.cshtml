@@ -1,4 +1,5 @@
-﻿@model EntityLayer.Concrete.WriterMessage
+﻿@model Core_Proje.Models.UserMessageViewModel
+
 
 @{
     ViewData["Title"] = "ReceiverMessageDetails";
@@ -20,10 +21,10 @@
                 word-wrap: break-word;
                 color: white;
             }
+
         table, th, td {
             border: 2px solid antiquewhite;
         }
-      
     </style>
 </head>
 
@@ -35,8 +36,23 @@
                 <div class="table-responsive">
                     <table class="table">
                         <tr>
-                            <td  style="width:120px !important;"><strong>Gönderen :</strong></td>
-                            <td  colspan="6"><strong >@Model.SenderName</strong> [ @Model.Sender ]</td>
+                            <td style="width:120px !important;"><strong>Gönderen :</strong></td>
+                            <td colspan="6">
+                                <div style="display: flex; align-items: center;">
+                                    @if (Model.ImageUrl == null)
+                                    {
+                                        <img src="/userimage/default.png" alt="image" class="rounded-circle profile-pic">
+                                    }
+                                    else
+                                    {
+                                        <img src="/userimage/@Model.ImageUrl" alt="image" class="rounded-circle profile-pic">
+                                    }
+
+
+                                    <span style="margin-left: 10px;"><strong>@Model.ReceiverName</strong></span>
+                                    <span style="margin-left: 10px;">[@Model.Sender]</span>
+                                </div>
+                            </td>
 
                         </tr>
                         <tr>
@@ -50,7 +66,7 @@
                         </tr>
                         <tr>
                             <td style="width:120px !important;"><strong>Mesaj :</strong></td>
-                            <td colspan="6" >@Model.MessageContent</td>
+                            <td colspan="6">@Model.MessageContent</td>
                         </tr>
                     </table>
                     <br />

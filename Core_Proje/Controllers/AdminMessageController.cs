@@ -32,27 +32,30 @@ namespace Core_Proje.Controllers
             var values = writerMessageManager.GetListSenderMessage(p);
             List<UserMessageViewModel> messageSenderViewModels = ViewSenderMessage(values);
             return View(messageSenderViewModels);
-           
+
         }
         public IActionResult ReceiverMessageDetails(int id)
         {
             WriterMessage writerMessage = writerMessageManager.TGetById(id);
-            return View(writerMessage);
+            UserMessageViewModel receiverDetails = ViewDetailMessage(writerMessage, writerMessage.Sender);
+            return View(receiverDetails);
+          
         }
 
         public IActionResult SenderMessageDetails(int id)
         {
             WriterMessage writerMessage = writerMessageManager.TGetById(id);
-            return View(writerMessage);
+            UserMessageViewModel senderDetails = ViewDetailMessage(writerMessage, writerMessage.Receiver);
+            return View(senderDetails);
         }
-       
+
         public IActionResult DeleteMessage(int id)
         {
             string p;
             p = "deneme@deneme.com";
             var values = writerMessageManager.TGetById(id);
-           
-            if (values.Receiver==p)
+
+            if (values.Receiver == p)
             {
                 writerMessageManager.TDelete(values);
                 return RedirectToAction("ReceiverMessageList");
@@ -62,7 +65,7 @@ namespace Core_Proje.Controllers
                 writerMessageManager.TDelete(values);
                 return RedirectToAction("SenderMessageList");
             }
-            
+
         }
         [HttpGet]
         public IActionResult AdminMessageSend()
@@ -79,7 +82,7 @@ namespace Core_Proje.Controllers
             Context c = new Context();
             var usernamesurname = c.Users.Where(x => x.Email == p.Receiver).Select(y => y.Name + " " + y.Surname).FirstOrDefault();
             p.ReceiverName = usernamesurname;
-            writerMessageManager.TAdd(p);           
+            writerMessageManager.TAdd(p);
             return RedirectToAction("SenderMessageList");
         }
 
@@ -97,7 +100,7 @@ namespace Core_Proje.Controllers
                     MessageContent = item.MessageContent,
                     SenderName = item.SenderName,
                     WriterMessageId = item.WriterMessageId,
-                    Subject=item.Subject,
+                    Subject = item.Subject,
                 };
                 messageViewModels.Add(model);
 
@@ -128,6 +131,24 @@ namespace Core_Proje.Controllers
 
             return messageViewModels;
         }
-
+        private static UserMessageViewModel ViewDetailMessage(WriterMessage values,string p)
+        {
+            Context c = new Context();
+            var user = c.Users.Where(x => x.Email == p).FirstOrDefault();
+            var model = new UserMessageViewModel
+            {
+                ImageUrl = user.ImageUrl,
+                Date = values.Date,
+                MessageContent = values.MessageContent,
+                SenderName = values.SenderName,
+                Sender = values.Sender,
+                WriterMessageId = values.WriterMessageId,
+                Subject = values.Subject,
+                ReceiverName = values.ReceiverName,
+                Receiver=values.Receiver
+            };
+            return (model);
+        }
     }
+  
 }
