@@ -10,11 +10,11 @@ namespace Core_Proje.ViewComponents.Portfolio
 {
     public class PortfolioList : ViewComponent
     {
-        PortfolioManager skillManager = new PortfolioManager(new EfPortfolioDal());
+        PortfolioManager portfolioManager = new PortfolioManager(new EfPortfolioDal());
 
         public IViewComponentResult Invoke()
         {
-            var values = skillManager.TGetList();
+            var values = portfolioManager.TGetList();
             return View(values);
         }
     }
