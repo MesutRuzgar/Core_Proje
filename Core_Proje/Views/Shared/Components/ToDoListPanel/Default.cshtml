@@ -6,8 +6,8 @@
         <div class="card-body">
             <h4 class="card-title">Yapılacaklar Listesi</h4>
             <div class="add-items d-flex">
-                <input type="text" class="form-control todo-list-input" placeholder="yapılacak görev..">
-                <button class="add btn btn-primary todo-list-add-btn">Ekle</button>
+                <input id="inpcontent" type="text" class="form-control" name="content" placeholder="Yapılacak bir iş giriniz.." />
+                <button id="btnadd" type="button" class="add btn btn-primary todo-list-add-btn">Ekle</button>
             </div>
             <div class="list-wrapper">
                 <ul class="d-flex flex-column-reverse text-white todo-list todo-list-custom">
@@ -21,19 +21,38 @@
                             </div>
                             <i class="remove mdi mdi-close-box"></i>
                         </li>
-                        
+
                     }
                     @*<li class="completed">
-                        <div class="form-check form-check-primary">
-                            <label class="form-check-label">
-                                <input class="checkbox" type="checkbox" checked> Prepare for presentation
-                            </label>
-                        </div>
-                        <i class="remove mdi mdi-close-box"></i>
-                    </li>*@
+                            <div class="form-check form-check-primary">
+                                <label class="form-check-label">
+                                    <input class="checkbox" type="checkbox" checked> Prepare for presentation
+                                </label>
+                            </div>
+                            <i class="remove mdi mdi-close-box"></i>
+                        </li>*@
 
                 </ul>
             </div>
         </div>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $("#btnadd").click(function () {
+        let values = {
+            Content: $("#inpcontent").val()
+        };
+        $.ajax({
+            type: "Post",
+            url: "/ToDoListAjax/Add/",
+            data: values,
+            success: function (funk1) {
+                let result = jQuery.parseJSON(funk1);
+                alert(" Ekleme işlemi başarılı");
+                location.reload(); // Sayfayı yeniden yükle
+            }
+        });
+    });
+</script>
+
