@@ -7,33 +7,26 @@
             <h4 class="card-title">Yapılacaklar Listesi</h4>
             <div class="add-items d-flex">
                 <input id="inpcontent" type="text" class="form-control" name="content" placeholder="Yapılacak bir iş giriniz.." />
-                <button id="btnadd" type="button" class="add btn btn-primary todo-list-add-btn">Ekle</button>
+                <button id="btnadd" type="button" class="add btn btn-success todo-list-add-btn">Ekle</button>
             </div>
             <div class="list-wrapper">
                 <ul class="d-flex flex-column-reverse text-white todo-list todo-list-custom">
                     @foreach (var item in Model)
                     {
                         <li>
-                            <div class="form-check form-check-primary">
-                                <label class="form-check-label">
-                                    <input class="checkbox" type="checkbox"> @item.Content
-                                </label>
+                            <div class="col-md-9">
+                                <label class="text-muted" >@item.Content</label>
                             </div>
-                            <i class="remove mdi mdi-close-box"></i>
+                            <div class="col-md-3 text-right">
+                                @*buton idsini boyle yapmamizin sebebi dongu ıcınde hepsinin buton idsi aynı olmasın diye
+                                aksi takdirde ajax en sondakini siliyor sadece*@ 
+                                <button id="btndelete-@item.Id" class="btn btn-danger" data-id="@item.Id">Sil</button>
+                            </div>
                         </li>
-
                     }
-                    @*<li class="completed">
-                            <div class="form-check form-check-primary">
-                                <label class="form-check-label">
-                                    <input class="checkbox" type="checkbox" checked> Prepare for presentation
-                                </label>
-                            </div>
-                            <i class="remove mdi mdi-close-box"></i>
-                        </li>*@
-
                 </ul>
             </div>
+
         </div>
     </div>
 </div>
@@ -54,5 +47,22 @@
             }
         });
     });
+
+    $(".btn-danger").click(function () {
+        var id = $(this).data("id"); // Tıklanan düğmenin doğru "data-id" değerini alır
+        $.ajax({
+            url: "/ToDoListAjax/Delete/" + id,
+            type: "post",
+            contentType: "application/json",
+            dataType: "json",
+            success: function (funk2) {
+                location.reload();
+            }
+        });
+    });
+
+
+
+
 </script>
 
