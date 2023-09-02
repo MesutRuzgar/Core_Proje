@@ -9,50 +9,63 @@
     <div class="card">
         <div class="card-body">
             <h4 class="card-title">Profil Bilgileri Düzenle</h4>
-            @*enctype="multipart/form-data" bu kisim kendi resim dosyamizi klasore kaydedebilmek icin*@
-        <form class="forms-sample" method="post" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="exampleInputName1">Adınız</label>
-                <input type="text" asp-for="Name" value="@Model.Name" class="form-control" placeholder="Ad">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputName1">Soyadınız</label>
-                <input type="text" class="form-control" asp-for="Surname" value="@Model.Surname" placeholder="Soyad">
-            </div>
-            @*<div class="form-group">
-            <label for="exampleInputEmail3">Kayıtlı Mail Adresiniz</label>
-            <input type="email" class="form-control" name="@Model.Email" value="@Model.Email" placeholder="Email" disabled>
-        </div>*@
-            <div class="form-group">
-                <label for="exampleInputPassword4">Şifreniz</label>
-                <input type="password" class="form-control" name="Password" placeholder="Şifre">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword4">Şifre Tekrar</label>
-                <input type="password" class="form-control" name="ComfirmPassword" placeholder="Şifre tekrar">
-            </div>
+            @* enctype="multipart/form-data" bu kısım kendi resim dosyanızı klasöre kaydedebilmek için *@
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="form-group">
+                            <label for="exampleInputName1">Adınız</label>
+                            <input type="text" asp-for="Name" value="@Model.Name" class="form-control" placeholder="Ad">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputName1">Soyadınız</label>
+                            <input type="text" class="form-control" asp-for="Surname" value="@Model.Surname" placeholder="Soyad">
+                        </div>
+                        <div class="form-group">
+                            <label>Resim Güncelle </label>
+                            <br />
+                            <input type="file" asp-for="Picture" class="form-control">
 
-            <div class="form-group">
-                <label>Resim </label>
-                <br />
-                <input type="file" asp-for="Picture">
-
-            </div>
-
-            @*<div class="form-group">
-                <label>File upload</label>
-                <input type="file" name="img[]" class="file-upload-default">
-                <div class="input-group col-xs-12">
-                    <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                    <span class="input-group-append">
-                        <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                    </span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="ProfilePicture">Profil Resmi Önizleme</label>
+                            <br />
+                            <img src="/userimage/@Model.PictureUrl" id="ProfilePicture" alt="Profil Resmi" class="form-control" style="width:100%; height:250px;">
+                        </div>
+                    </div>
                 </div>
-            </div>*@
+                        @*<div class="form-group">
+                                <label for="exampleInputEmail3">Kayıtlı Mail Adresiniz</label>
+                                <input type="email" class="form-control" name="@Model.Email" value="@Model.Email" placeholder="Email" disabled>
+                            </div>*@
+                        <div class="form-group">
+                            <label for="exampleInputPassword4">Şifreniz</label>
+                            <input type="password" class="form-control" name="Password" placeholder="Şifre">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword4">Şifre Tekrar</label>
+                            <input type="password" class="form-control" name="ComfirmPassword" placeholder="Şifre tekrar">
+                        </div>
 
-            <button type="submit" class="btn btn-primary mr-2">Güncelle</button>
-            <button class="btn btn-danger">İptal</button>
-        </form>
+                        
+                
+
+                        @*<div class="form-group">
+                                <label>File upload</label>
+                                <input type="file" name="img[]" class="file-upload-default">
+                                <div class="input-group col-xs-12">
+                                    <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                                    <span class="input-group-append">
+                                        <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
+                                    </span>
+                                </div>
+                            </div>*@
+
+                        <button type="submit" class="btn btn-primary mr-2">Güncelle</button>
+                        <button class="btn btn-danger">İptal</button>
+            </form>
         </div>
     </div>
 </div>

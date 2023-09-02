@@ -68,7 +68,8 @@ namespace Core_Proje.Areas.Writer.Controllers
             var result = await _userManager.UpdateAsync(user);
             if (result.Succeeded)
             {
-                return Redirect("/Writer/DashboardWriter/Index");
+               
+                return RedirectToAction("Index","Profile");
             }
             return View();
         }
