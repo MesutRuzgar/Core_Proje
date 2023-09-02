@@ -15,8 +15,12 @@ namespace Core_Proje.ViewComponents.Dashboard
         {
 
             ViewBag.c1 = c.Skills.Count();
-            ViewBag.c2 = c.Messages.Where(x=>x.Status==false).Count();
-            ViewBag.c3 = c.Messages.Where(x => x.Status == true).Count();
+            var m1 = c.Messages.Where(x => x.Status == false).Count();
+            var m2 = c.WriterMessages.Where(x => x.Status == false).Count();
+            ViewBag.c2 = m1 + m2;
+            var m3 = c.Messages.Where(x => x.Status == true).Count();
+            var m4 = c.WriterMessages.Where(x => x.Status == true).Count();
+            ViewBag.c3 = m3 + m4;
             ViewBag.c4 = c.Experiences.Count();
             return View();
         }

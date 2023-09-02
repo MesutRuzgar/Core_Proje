@@ -15,6 +15,7 @@ namespace Core_Proje.ViewComponents.Dashboard
             ViewBag.v1 = c.Portfolios.Count();
             ViewBag.v2 = c.Messages.Count();
             ViewBag.v3 = c.Services.Count();
+            ViewBag.v4 = c.Portfolios.Where(x => x.Status == false).Count();
             return View();
         }
     }
