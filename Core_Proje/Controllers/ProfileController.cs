@@ -65,7 +65,7 @@ namespace Core_Proje.Controllers
             var result = await _userManager.UpdateAsync(user);
             if (result.Succeeded)
             {
-                return RedirectToAction("Index", "Dashboard");
+                return RedirectToAction("Index", "Profile");
             }
             return View();
         }
