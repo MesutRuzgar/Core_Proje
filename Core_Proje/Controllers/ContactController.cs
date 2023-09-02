@@ -27,6 +27,8 @@ namespace Core_Proje.Controllers
         public IActionResult ContactDetails(int id)
         {
             var values = messageManager.TGetById(id);
+            values.Status = true;
+            messageManager.TUpdate(values);
             return View(values);
         }
     }

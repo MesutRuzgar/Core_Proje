@@ -46,6 +46,8 @@ namespace Core_Proje.Areas.Writer.Controllers
         public IActionResult ReceiverMessageDetails(int id)
         {
             WriterMessage writerMessage = writerMessageManager.TGetById(id);
+            writerMessage.Status = true;
+            writerMessageManager.TUpdate(writerMessage);
             return View(writerMessage);
         }
      
@@ -71,6 +73,7 @@ namespace Core_Proje.Areas.Writer.Controllers
             p.Date = Convert.ToDateTime(DateTime.Now.ToShortDateString());
             p.Sender = mail;
             p.SenderName = name;
+            p.Status = false;
             writerMessageManager.TAdd(p);
             return RedirectToAction("SenderMessage");
         }

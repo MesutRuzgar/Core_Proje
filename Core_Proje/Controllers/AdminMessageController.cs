@@ -37,6 +37,8 @@ namespace Core_Proje.Controllers
         public IActionResult ReceiverMessageDetails(int id)
         {
             WriterMessage writerMessage = writerMessageManager.TGetById(id);
+            writerMessage.Status = true;
+            writerMessageManager.TUpdate(writerMessage);
             UserMessageViewModel receiverDetails = ViewDetailMessage(writerMessage, writerMessage.Sender);
             return View(receiverDetails);
           
