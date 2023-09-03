@@ -20,9 +20,25 @@
                             </div>
                         </div>
                     </div>
-                    <h6 class="text-muted font-weight-normal">Toplam Okunmamış Mesaj Sayısı</h6>               
+                    @if (ViewBag.c2 > 0)
+                    {
+                        <div onclick="toggleUnreadMessages()">
+                            <h6 class="text-muted font-weight-normal" id="toggleUnreadMessages">Toplam Okunmamış Mesaj Sayısı</h6>
+                        </div>
+                        <div>
+                            <ul class="unread-messages-list" id="unreadMessagesList" style="display: none;">
+                                <li > <a href="/Contact"> Sayfadan gelen okunmamış mesaj : @ViewBag.y</a></li>
+                                <li > <a href="/AdminMessage/ReceiverMessageList"> Yazarlardan gelen okunmamış mesaj : @ViewBag.y1</a></li>
+                            </ul>
+                        </div>
+                    }
+                    else
+                    {
+                        <h6 class="text-muted font-weight-normal" id="toggleUnreadMessages">Toplam Okunmamış Mesaj Sayısı</h6>
+                    }
+
                 </div>
-            </div>
+                </div>
         </div>
         <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
             <!-- Kart 3 -->
@@ -94,3 +110,14 @@
         </div>
     </div>
 </div>
+
+<script>
+    function toggleUnreadMessages() {
+        var messageList = document.getElementById("unreadMessagesList");
+        if (messageList.style.display === "none" || messageList.style.display === "") {
+            messageList.style.display = "block";
+        } else {
+            messageList.style.display = "none";
+        }
+    }
+</script>
