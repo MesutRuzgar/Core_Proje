@@ -63,24 +63,29 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
-                <div class="card card-light-blue">
-                    <div class="card-body">
-                        <p class="mb-4">Toplam Kullanıcı Sayısı</p>
-                        <p class="fs-30 mb-2">@ViewBag.v3</p>
+
+        @if (User.IsInRole("Admin"))
+        {
+            <div class="row">
+                <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
+                    <div class="card card-light-blue">
+                        <div class="card-body">
+                            <p class="mb-4">Toplam Kullanıcı Sayısı</p>
+                            <p class="fs-30 mb-2">@ViewBag.v3</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 stretch-card transparent">
+                    <div class="card card-light-danger">
+                        <div class="card-body">
+                            <p class="mb-4">Toplam Yetenek Sayısı</p>
+                            <p class="fs-30 mb-2">@ViewBag.v4</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 stretch-card transparent">
-                <div class="card card-light-danger">
-                    <div class="card-body">
-                        <p class="mb-4">Toplam Yetenek Sayısı</p>
-                        <p class="fs-30 mb-2">@ViewBag.v4</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        }
+
     </div>
 </div>
 
