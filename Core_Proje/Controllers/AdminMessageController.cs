@@ -103,6 +103,7 @@ namespace Core_Proje.Controllers
                     SenderName = item.SenderName,
                     WriterMessageId = item.WriterMessageId,
                     Subject = item.Subject,
+                    Status=item.Status
                 };
                 messageViewModels.Add(model);
 

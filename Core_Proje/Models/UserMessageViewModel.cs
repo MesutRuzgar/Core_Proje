@@ -17,5 +17,6 @@ namespace Core_Proje.Models
         public string Subject { get; set; }
         public DateTime Date { get; set; }
         public string ImageUrl { get; set; }
+        public bool Status { get; set; }
     }
 }

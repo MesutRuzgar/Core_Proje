@@ -22,6 +22,7 @@
                             <th>Gönderen</th>
                             <th>Konu</th>
                             <th>Tarih</th>
+                            <th>Durum</th>
 
                         </tr>
                     </thead>
@@ -32,18 +33,30 @@
                             <td>
                                 @if (item.ImageUrl == null)
                                 {
-                                    <img src="/userimage/default.png" alt="image" class="rounded-circle profile-pic"> 
+                                    <img src="/userimage/default.png" alt="image" class="rounded-circle profile-pic">
                                 }
                                 else
                                 {
-                                     <img src="/userimage/@item.ImageUrl" alt="image" class="rounded-circle profile-pic">
+                                    <img src="/userimage/@item.ImageUrl" alt="image" class="rounded-circle profile-pic">
                                 }
 
                             </td>
                             <td>@item.SenderName</td>
                             <td>@item.Subject</td>
                             <td>@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</td>
-
+                           
+                            <td>
+                                @if (item.Status == true)
+                                {
+                                    <div class="badge badge-outline-success"> Okundu </div>
+                                }
+                                else
+                                {
+                                    <div class="badge badge-outline-danger"> Okunmadı </div>
+                                }
+                              
+                            </td>
+                           
                             <td><a href="/AdminMessage/ReceiverMessageDetails/@item.WriterMessageId" class="btn btn-warning">Mesajı Gör</a></td>
                             <td><a href="/AdminMessage/DeleteMessage/@item.WriterMessageId" class="btn btn-danger">Mesajı Sil</a></td>
                         </tr>
