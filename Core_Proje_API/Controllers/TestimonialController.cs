@@ -2,49 +2,45 @@
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Core_Proje_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FeatureController : ControllerBase
+    public class TestimonialController : ControllerBase
     {
-        IFeatureService _featureService;
+        ITestimonialService _testimonialService;
 
-        public FeatureController(IFeatureService featureService)
+        public TestimonialController(ITestimonialService testimonialService)
         {
-            _featureService = featureService;
+            _testimonialService = testimonialService;
         }
 
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
-            var values = _featureService.TGetList();
+            var values = _testimonialService.TGetList();
             return Ok(values);
 
         }
         [HttpGet("getid")]
         public IActionResult GetById(int id)
         {
-            var values = _featureService.TGetById(id);
+            var values = _testimonialService.TGetById(id);
             return Ok(values);
 
         }
         [HttpPost("add")]
-        public IActionResult Add(Feature feature)
+        public IActionResult Add(Testimonial testimonial)
         {
-            _featureService.TAdd(feature);
+            _testimonialService.TAdd(testimonial);
             return Ok(new { message = "Başarıyla eklendi." });
 
         }
         [HttpPost("update")]
-        public IActionResult Update(Feature feature)
+        public IActionResult Update(Testimonial testimonial)
         {
-            _featureService.TUpdate(feature);
+            _testimonialService.TUpdate(testimonial);
             return Ok(new { message = "Başarıyla güncellendi." });
 
         }
@@ -52,18 +48,17 @@ namespace Core_Proje_API.Controllers
         public IActionResult Delete(int id)
         {
 
-            var delete = _featureService.TGetById(id);
+            var delete = _testimonialService.TGetById(id);
             if (delete == null)
             {
                 return NotFound(new { message = "Belirtilen özellik bulunamadı." });
             }
             else
             {
-                _featureService.TDelete(delete);
+                _testimonialService.TDelete(delete);
                 return Ok(new { message = "Başarıyla silindi." });
             }
 
         }
     }
 }
-

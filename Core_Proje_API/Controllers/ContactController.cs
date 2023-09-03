@@ -11,40 +11,40 @@ namespace Core_Proje_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FeatureController : ControllerBase
+    public class ContactController : ControllerBase
     {
-        IFeatureService _featureService;
+        IContactService _contactService;
 
-        public FeatureController(IFeatureService featureService)
+        public ContactController(IContactService contactService)
         {
-            _featureService = featureService;
+            _contactService = contactService;
         }
 
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
-            var values = _featureService.TGetList();
+            var values = _contactService.TGetList();
             return Ok(values);
 
         }
         [HttpGet("getid")]
         public IActionResult GetById(int id)
         {
-            var values = _featureService.TGetById(id);
+            var values = _contactService.TGetById(id);
             return Ok(values);
 
         }
         [HttpPost("add")]
-        public IActionResult Add(Feature feature)
+        public IActionResult Add(Contact contact)
         {
-            _featureService.TAdd(feature);
+            _contactService.TAdd(contact);
             return Ok(new { message = "Başarıyla eklendi." });
 
         }
         [HttpPost("update")]
-        public IActionResult Update(Feature feature)
+        public IActionResult Update(Contact contact)
         {
-            _featureService.TUpdate(feature);
+            _contactService.TUpdate(contact);
             return Ok(new { message = "Başarıyla güncellendi." });
 
         }
@@ -52,18 +52,17 @@ namespace Core_Proje_API.Controllers
         public IActionResult Delete(int id)
         {
 
-            var delete = _featureService.TGetById(id);
+            var delete = _contactService.TGetById(id);
             if (delete == null)
             {
                 return NotFound(new { message = "Belirtilen özellik bulunamadı." });
             }
             else
             {
-                _featureService.TDelete(delete);
+                _contactService.TDelete(delete);
                 return Ok(new { message = "Başarıyla silindi." });
             }
 
         }
     }
 }
-

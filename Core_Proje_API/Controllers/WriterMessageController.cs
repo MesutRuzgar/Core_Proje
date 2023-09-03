@@ -2,49 +2,45 @@
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Core_Proje_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FeatureController : ControllerBase
+    public class WriterMessageController : ControllerBase
     {
-        IFeatureService _featureService;
+        IWriterMessageService _writerMessageService;
 
-        public FeatureController(IFeatureService featureService)
+        public WriterMessageController(IWriterMessageService writerMessageService)
         {
-            _featureService = featureService;
+            _writerMessageService = writerMessageService;
         }
 
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
-            var values = _featureService.TGetList();
+            var values = _writerMessageService.TGetList();
             return Ok(values);
 
         }
         [HttpGet("getid")]
         public IActionResult GetById(int id)
         {
-            var values = _featureService.TGetById(id);
+            var values = _writerMessageService.TGetById(id);
             return Ok(values);
 
         }
         [HttpPost("add")]
-        public IActionResult Add(Feature feature)
+        public IActionResult Add(WriterMessage p)
         {
-            _featureService.TAdd(feature);
+            _writerMessageService.TAdd(p);
             return Ok(new { message = "Başarıyla eklendi." });
 
         }
         [HttpPost("update")]
-        public IActionResult Update(Feature feature)
+        public IActionResult Update(WriterMessage p)
         {
-            _featureService.TUpdate(feature);
+            _writerMessageService.TUpdate(p);
             return Ok(new { message = "Başarıyla güncellendi." });
 
         }
@@ -52,18 +48,17 @@ namespace Core_Proje_API.Controllers
         public IActionResult Delete(int id)
         {
 
-            var delete = _featureService.TGetById(id);
+            var delete = _writerMessageService.TGetById(id);
             if (delete == null)
             {
                 return NotFound(new { message = "Belirtilen özellik bulunamadı." });
             }
             else
             {
-                _featureService.TDelete(delete);
+                _writerMessageService.TDelete(delete);
                 return Ok(new { message = "Başarıyla silindi." });
             }
 
         }
     }
 }
-

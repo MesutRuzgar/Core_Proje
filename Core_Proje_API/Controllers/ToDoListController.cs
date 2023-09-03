@@ -2,49 +2,45 @@
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Core_Proje_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FeatureController : ControllerBase
+    public class ToDoListController : ControllerBase
     {
-        IFeatureService _featureService;
+        IToDoListService _toDoListService;
 
-        public FeatureController(IFeatureService featureService)
+        public ToDoListController(IToDoListService toDoListService)
         {
-            _featureService = featureService;
+            _toDoListService = toDoListService;
         }
 
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
-            var values = _featureService.TGetList();
+            var values = _toDoListService.TGetList();
             return Ok(values);
 
         }
         [HttpGet("getid")]
         public IActionResult GetById(int id)
         {
-            var values = _featureService.TGetById(id);
+            var values = _toDoListService.TGetById(id);
             return Ok(values);
 
         }
         [HttpPost("add")]
-        public IActionResult Add(Feature feature)
+        public IActionResult Add(ToDoList toDoList)
         {
-            _featureService.TAdd(feature);
+            _toDoListService.TAdd(toDoList);
             return Ok(new { message = "Başarıyla eklendi." });
 
         }
         [HttpPost("update")]
-        public IActionResult Update(Feature feature)
+        public IActionResult Update(ToDoList toDoList)
         {
-            _featureService.TUpdate(feature);
+            _toDoListService.TUpdate(toDoList);
             return Ok(new { message = "Başarıyla güncellendi." });
 
         }
@@ -52,18 +48,17 @@ namespace Core_Proje_API.Controllers
         public IActionResult Delete(int id)
         {
 
-            var delete = _featureService.TGetById(id);
+            var delete = _toDoListService.TGetById(id);
             if (delete == null)
             {
                 return NotFound(new { message = "Belirtilen özellik bulunamadı." });
             }
             else
             {
-                _featureService.TDelete(delete);
+                _toDoListService.TDelete(delete);
                 return Ok(new { message = "Başarıyla silindi." });
             }
 
         }
     }
 }
-

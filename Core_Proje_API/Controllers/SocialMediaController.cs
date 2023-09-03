@@ -2,49 +2,45 @@
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Core_Proje_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FeatureController : ControllerBase
+    public class SocialMediaController : ControllerBase
     {
-        IFeatureService _featureService;
+        ISocialMediaService _socialMediaService;
 
-        public FeatureController(IFeatureService featureService)
+        public SocialMediaController(ISocialMediaService socialMediaService)
         {
-            _featureService = featureService;
+            _socialMediaService = socialMediaService;
         }
 
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
-            var values = _featureService.TGetList();
+            var values = _socialMediaService.TGetList();
             return Ok(values);
 
         }
         [HttpGet("getid")]
         public IActionResult GetById(int id)
         {
-            var values = _featureService.TGetById(id);
+            var values = _socialMediaService.TGetById(id);
             return Ok(values);
 
         }
         [HttpPost("add")]
-        public IActionResult Add(Feature feature)
+        public IActionResult Add(SocialMedia socialMedia)
         {
-            _featureService.TAdd(feature);
+            _socialMediaService.TAdd(socialMedia);
             return Ok(new { message = "Başarıyla eklendi." });
 
         }
         [HttpPost("update")]
-        public IActionResult Update(Feature feature)
+        public IActionResult Update(SocialMedia socialMedia)
         {
-            _featureService.TUpdate(feature);
+            _socialMediaService.TUpdate(socialMedia);
             return Ok(new { message = "Başarıyla güncellendi." });
 
         }
@@ -52,18 +48,17 @@ namespace Core_Proje_API.Controllers
         public IActionResult Delete(int id)
         {
 
-            var delete = _featureService.TGetById(id);
+            var delete = _socialMediaService.TGetById(id);
             if (delete == null)
             {
                 return NotFound(new { message = "Belirtilen özellik bulunamadı." });
             }
             else
             {
-                _featureService.TDelete(delete);
+                _socialMediaService.TDelete(delete);
                 return Ok(new { message = "Başarıyla silindi." });
             }
 
         }
     }
 }
-

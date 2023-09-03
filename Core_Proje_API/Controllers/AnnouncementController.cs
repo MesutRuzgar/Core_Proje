@@ -11,40 +11,40 @@ namespace Core_Proje_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FeatureController : ControllerBase
+    public class AnnouncementController : ControllerBase
     {
-        IFeatureService _featureService;
+        IAnnouncementService _announcementService;
 
-        public FeatureController(IFeatureService featureService)
+        public AnnouncementController(IAnnouncementService announcementService)
         {
-            _featureService = featureService;
+            _announcementService = announcementService;
         }
 
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
-            var values = _featureService.TGetList();
+            var values = _announcementService.TGetList();
             return Ok(values);
 
         }
         [HttpGet("getid")]
         public IActionResult GetById(int id)
         {
-            var values = _featureService.TGetById(id);
+            var values = _announcementService.TGetById(id);
             return Ok(values);
 
         }
         [HttpPost("add")]
-        public IActionResult Add(Feature feature)
+        public IActionResult Add(Announcement announcement)
         {
-            _featureService.TAdd(feature);
+            _announcementService.TAdd(announcement);
             return Ok(new { message = "Başarıyla eklendi." });
 
         }
         [HttpPost("update")]
-        public IActionResult Update(Feature feature)
+        public IActionResult Update(Announcement announcement)
         {
-            _featureService.TUpdate(feature);
+            _announcementService.TUpdate(announcement);
             return Ok(new { message = "Başarıyla güncellendi." });
 
         }
@@ -52,18 +52,17 @@ namespace Core_Proje_API.Controllers
         public IActionResult Delete(int id)
         {
 
-            var delete = _featureService.TGetById(id);
+            var delete = _announcementService.TGetById(id);
             if (delete == null)
             {
                 return NotFound(new { message = "Belirtilen özellik bulunamadı." });
             }
             else
             {
-                _featureService.TDelete(delete);
+                _announcementService.TDelete(delete);
                 return Ok(new { message = "Başarıyla silindi." });
             }
 
         }
     }
 }
-

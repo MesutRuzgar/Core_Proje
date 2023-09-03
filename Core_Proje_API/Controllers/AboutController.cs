@@ -11,40 +11,40 @@ namespace Core_Proje_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FeatureController : ControllerBase
+    public class AboutController : ControllerBase
     {
-        IFeatureService _featureService;
+        IAboutService _aboutService;
 
-        public FeatureController(IFeatureService featureService)
+        public AboutController(IAboutService aboutService)
         {
-            _featureService = featureService;
+            _aboutService = aboutService;
         }
 
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
-            var values = _featureService.TGetList();
+            var values = _aboutService.TGetList();
             return Ok(values);
 
         }
         [HttpGet("getid")]
         public IActionResult GetById(int id)
         {
-            var values = _featureService.TGetById(id);
+            var values = _aboutService.TGetById(id);
             return Ok(values);
 
         }
         [HttpPost("add")]
-        public IActionResult Add(Feature feature)
+        public IActionResult Add(About about)
         {
-            _featureService.TAdd(feature);
+            _aboutService.TAdd(about);
             return Ok(new { message = "Başarıyla eklendi." });
 
         }
         [HttpPost("update")]
-        public IActionResult Update(Feature feature)
+        public IActionResult Update(About about)
         {
-            _featureService.TUpdate(feature);
+            _aboutService.TUpdate(about);
             return Ok(new { message = "Başarıyla güncellendi." });
 
         }
@@ -52,18 +52,17 @@ namespace Core_Proje_API.Controllers
         public IActionResult Delete(int id)
         {
 
-            var delete = _featureService.TGetById(id);
+            var delete = _aboutService.TGetById(id);
             if (delete == null)
             {
                 return NotFound(new { message = "Belirtilen özellik bulunamadı." });
             }
             else
             {
-                _featureService.TDelete(delete);
+                _aboutService.TDelete(delete);
                 return Ok(new { message = "Başarıyla silindi." });
             }
 
         }
     }
 }
-

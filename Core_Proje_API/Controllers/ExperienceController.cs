@@ -11,40 +11,40 @@ namespace Core_Proje_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FeatureController : ControllerBase
+    public class ExperienceController : ControllerBase
     {
-        IFeatureService _featureService;
+        IExperienceService _experienceService;
 
-        public FeatureController(IFeatureService featureService)
+        public ExperienceController(IExperienceService experienceService)
         {
-            _featureService = featureService;
+            _experienceService = experienceService;
         }
 
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
-            var values = _featureService.TGetList();
+            var values = _experienceService.TGetList();
             return Ok(values);
 
         }
         [HttpGet("getid")]
         public IActionResult GetById(int id)
         {
-            var values = _featureService.TGetById(id);
+            var values = _experienceService.TGetById(id);
             return Ok(values);
 
         }
         [HttpPost("add")]
-        public IActionResult Add(Feature feature)
+        public IActionResult Add(Experience experience)
         {
-            _featureService.TAdd(feature);
+            _experienceService.TAdd(experience);
             return Ok(new { message = "Başarıyla eklendi." });
 
         }
         [HttpPost("update")]
-        public IActionResult Update(Feature feature)
+        public IActionResult Update(Experience experience)
         {
-            _featureService.TUpdate(feature);
+            _experienceService.TUpdate(experience);
             return Ok(new { message = "Başarıyla güncellendi." });
 
         }
@@ -52,18 +52,18 @@ namespace Core_Proje_API.Controllers
         public IActionResult Delete(int id)
         {
 
-            var delete = _featureService.TGetById(id);
+            var delete = _experienceService.TGetById(id);
             if (delete == null)
             {
                 return NotFound(new { message = "Belirtilen özellik bulunamadı." });
             }
             else
             {
-                _featureService.TDelete(delete);
+                _experienceService.TDelete(delete);
                 return Ok(new { message = "Başarıyla silindi." });
             }
 
         }
+
     }
 }
-
