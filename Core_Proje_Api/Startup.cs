@@ -28,6 +28,7 @@ namespace Core_Proje_Api
         {
 
             services.AddControllers();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Core_Proje_Api", Version = "v1" });
