@@ -17,7 +17,7 @@
 
             .table td {
                 overflow: hidden;
-                white-space: pre-wrap;
+                white-space: normal;
                 word-wrap: break-word;
                 color: white;
             }
@@ -25,6 +25,7 @@
         table, th, td {
             border: 2px solid antiquewhite;
         }
+    
     </style>
 </head>
 
@@ -41,15 +42,13 @@
                                 <div style="display: flex; align-items: center;">
                                     @if (Model.ImageUrl == null)
                                     {
-                                        <img src="/userimage/default.png" alt="image" class="rounded-circle profile-pic">
+                                        <img src="/userimage/default.png" style="width:40px; height:40px;" alt="image" class="rounded-circle profile-pic">
                                     }
                                     else
                                     {
-                                        <img src="/userimage/@Model.ImageUrl" alt="image" class="rounded-circle profile-pic">
+                                        <img src="/userimage/@Model.ImageUrl" style="width:40px; height:40px;" alt="image" class="rounded-circle profile-pic">
                                     }
-
-
-                                    <span style="margin-left: 10px;"><strong>@Model.ReceiverName</strong></span>
+                                    <span style="margin-left: 10px;"><strong>@Model.SenderName</strong></span>
                                     <span style="margin-left: 10px;">[@Model.Sender]</span>
                                 </div>
                             </td>
