@@ -61,7 +61,8 @@ namespace Core_Proje.Controllers
             }
         
             testimonialManager.TUpdate(existingTestimonial);
-            return RedirectToAction("Index");
+            return Redirect("/Testimonial/EditTestimonial/" + existingTestimonial.TestimonialId);
+
         }
 
         [HttpGet]

@@ -15,25 +15,35 @@
 
 
                     @Html.HiddenFor(model => model.TestimonialId)
-                    <div class="form-group">
-                        <label for="exampleInputName1">Ad Soyad</label>
-                        <input type="text" name="ClientName" class="form-control" value="@Model.ClientName" />
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="form-group">
+                                <label for="exampleInputName1">Ad Soyad</label>
+                                <input type="text" name="ClientName" class="form-control" value="@Model.ClientName" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="formFile" class="form-label">Resim</label>
+                                <input class="form-control" type="file" id="formFile" name="Picture">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail3">Şirket</label>
+                                <input type="text" name="Company" class="form-control" value="@Model.Company">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail3">Yorum</label>
+                                <textarea name="Comment" class="form-control">@Model.Comment</textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="ProfilePicture">Resim Önizleme</label>
+                                <br />
+                                <img src="/testimonialimage/@Model.ImageUrl" id="ProfilePicture" alt="Profil Resmi" class="form-control" style="width:100%; height:292px;">
+                            </div>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="formFile" class="form-label">Resim</label>
-                        <input class="form-control" type="file" id="formFile" name="Picture">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail3">Şirket</label>
-                        <input type="text" name="Company" class="form-control" value="@Model.Company">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail3">Yorum</label>
-                        <textarea name="Comment" class="form-control" >@Model.Comment</textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-warning mr-2">Güncelle</button>
-                    <a href="/Testimonial" class="btn btn-danger">Geri</a>
+                            <button type="submit" class="btn btn-warning mr-2">Güncelle</button>
+                            <a href="/Testimonial" class="btn btn-danger">Geri</a>
                 </form>
             </div>
         </div>
