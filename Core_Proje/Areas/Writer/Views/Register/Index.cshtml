@@ -4,32 +4,28 @@
     Layout = null;
 }
 
+
+
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Skydash Admin</title>
-    <link rel="stylesheet" href="~/skydash/vendors/feather/feather.css">
-    <link rel="stylesheet" href="~/skydash/vendors/ti-icons/css/themify-icons.css">
-    <link rel="stylesheet" href="~/skydash/vendors/css/vendor.bundle.base.css">
-    <link rel="stylesheet" href="~/skydash/css/vertical-layout-light/style.css">
-    <link rel="shortcut icon" href="~/skydash/images/favicon.png" />
+    <title>Core 5.0 Kayıt</title>
+    <link rel="stylesheet" href="~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/css/style.css">
+    <link rel="shortcut icon" href="~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/images/favicon.png" />
 </head>
-
 <body>
     <div class="container-scroller">
         <div class="container-fluid page-body-wrapper full-page-wrapper">
-            <div class="content-wrapper d-flex align-items-center auth px-0">
-                <div class="row w-100 mx-0">
-                    <div class="col-lg-4 mx-auto">
-                        <div class="auth-form-light text-left py-5 px-4 px-sm-5">
-                            <div class="brand-logo">
-                                <img src="~/skydash/images/logo.svg" alt="logo">
-                            </div>
-                            <h4>Bir hesabın yok mu?</h4>
-                            <h6 class="font-weight-light">Hemen sisteme kayıt yaptırabilirsin</h6>
+            <div class="row w-100 m-0">
+                <div class="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg">
+                    <div class="card col-lg-4 mx-auto">
+                        <div class="card-body px-5 py-5">
+                            <h3 class="card-title text-left mb-3">Kayıt Formu </h3>
                             <form class="pt-3" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label>Adınız</label>
@@ -47,7 +43,7 @@
                                     <input type="text" class="form-control form-control-lg" asp-for="UserName" placeholder="Kullanıcı Adınız ">
                                 </div>
                                 <div class="form-group">
-                                    <label >Resim</label>
+                                    <label>Resim</label>
                                     <input type="file" class="form-control form-control-lg" asp-for="Picture">
                                 </div>
                                 <div class="form-group">
@@ -75,19 +71,18 @@
                                         Bir hesabın var mı? <a href="/Writer/Login/Index/" class="text-primary">Giriş Yap</a>
                                     </div>
                                 </div>
-                                @*<div class="text-center mt-4 font-weight-light">
-            Already have an account? <a href="login.html" class="text-primary">Login</a>
-        </div>*@
                             </form>
-                    </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
-    <script src="~/skydash/vendors/js/vendor.bundle.base.js"></script>
+    <script src="~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/js/off-canvas.js"></script>
+    <script src="~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/js/hoverable-collapse.js"></script>
+    <script src="~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/js/misc.js"></script>
+    <script src="~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/js/settings.js"></script>
+    <script src="~/corona-free-dark-bootstrap-admin-template-1.0.0/template/assets/js/todolist.js"></script>
 </body>
-
 </html>
