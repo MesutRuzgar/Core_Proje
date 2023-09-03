@@ -15,11 +15,13 @@ namespace Core_Proje.ViewComponents.Dashboard
     public class AdminNavbarMessageList : ViewComponent
     {
         WriterMessageManager writerMessageManager = new WriterMessageManager(new EfWriterMessageDal());
+        MessageManager messageManager = new MessageManager(new EfMessageDal());
         public IViewComponentResult Invoke()
         {
             Context c = new Context();
             string p = "deneme@deneme.com";
-            var values = writerMessageManager.GetListReceiverMessage(p).OrderByDescending(x => x.WriterMessageId).Take(3).ToList();
+            var values = writerMessageManager.GetListReceiverMessage(p).Where(x => x.Status == false).OrderByDescending(x => x.WriterMessageId).Take(3).ToList();
+           
             //list olusturmamizin sebebi yukarida liste almamiz
             List<UserMessageViewModel> messageViewModels = new List<UserMessageViewModel>();
             foreach (var item in values)
@@ -39,7 +41,7 @@ namespace Core_Proje.ViewComponents.Dashboard
             return View(messageViewModels);
         }
 
-
+     
 
     }
 
