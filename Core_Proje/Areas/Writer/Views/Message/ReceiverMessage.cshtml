@@ -5,7 +5,7 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_WriterLayout.cshtml";
 }
-@*@{ string color = "";}*@
+
 
 <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
@@ -20,36 +20,31 @@
                             <th>Konu</th>
                             <th>Tarih</th>
                             <th>Gönderen</th>
-                            <th></th>
+                            <th>Durum</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var item in Model)
                         {
-                            //if (item.Status == "Yeni Yazı")
-                            //{
-                            //    color = "badge badge-danger";
-                            //}
-                            //if (item.Status == "Yeni Video")
-                            //{
-                            //    color = "badge badge-warning";
-                            //}
-                            //if (item.Status == "Konferans")
-                            //{
-                            //    color = "badge badge-info";
-                            //}
-                            //if (item.Status == "Bootcamp")
-                            //{
-                            //    color = "badge badge-success";
-                            //}
+                          
 
                         <tr>
-                            
+
                             <td>@item.Subject</td>
                             <td>@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</td>
                             <td>@item.SenderName</td>
+                            <td>
+                                @if (item.Status == true)
+                                {
+                                    <div class="badge badge-outline-success"> Okundu </div>
+                                }
+                                else
+                                {
+                                    <div class="badge badge-outline-danger"> Okunmadı </div>
+                                }
 
+                            </td>
                             <td><a href="/Writer/Message/ReceiverMessageDetails/@item.WriterMessageId" class="btn btn-primary">Mesajı Gör</a></td>
                         </tr>
                         }
