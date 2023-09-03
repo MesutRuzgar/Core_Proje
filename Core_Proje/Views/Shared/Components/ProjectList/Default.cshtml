@@ -1,52 +1,73 @@
 ﻿@using EntityLayer.Concrete
 @model List<Portfolio>
 
-<div class="row ">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title">Projelerim</h4>
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th> Platform </th>
-                                <th> Proje Adı </th>
-                                <th> Fiyat </th>
-                                <th> İlerleme </th>
-                                <th >Durum</th>
-                                <th> URL </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model)
-                            {
-                            <tr>
-                                <td>
-                                    #
-                                </td>
-                                <td>
-                                    <img src=@item.Platform alt="image" />
-                                </td>
-                                <td> <span class="pl-2">@item.Name</span></td>
-                                <td> @item.Price</td>
-                                <td> @item.Value% </td>
-                                <td>
-                                    <div class="@(item.Status ? "badge badge-outline-success" : "badge badge-outline-danger")">
-                                        @(item.Status ? "Tamamlandı" : "Devam Ediyor")
-                                    </div>
-                                </td>
 
-                                <td> @item.ProjectUrl </td>
-                                <td> <a href="/Portfolio/EditPortfolio/@item.PortfolioId"> <div class="btn btn-warning"> Detayları Gör</div></a> </td>
-                            </tr>
-                            }
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <style>
 
-                        </tbody>
-                    </table>
+            .table td,
+            .table th {
+                max-width: 100px;
+                width: 206px;
+                height: 45px;
+                white-space: nowrap; /* Metni taşımayı engeller */
+                overflow: hidden; /* Taşıyan metni gizler */
+                text-overflow: ellipsis; /* Sığmayan metni üç nokta (...) ile gösterir */
+            }
+            
+
+         
+        </style>
+    </head>
+    <body>
+        <div class="row ">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Projelerim</h4>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                      
+                                        <th> Platform</th>
+                                        <th> Proje Adı</th>
+                                        <th> Fiyat</th>
+                                        <th> İlerleme</th>
+                                        <th>Durum</th>
+                                        <th> URL</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            
+                                            <td>
+                                                <img src=@item.Platform alt="image" style="width:30px; height:30px;" />
+                                            </td>
+                                            <td> <span class="pl-2">@item.Name</span></td>
+                                            <td> @item.Price</td>
+                                            <td> @item.Value% </td>
+                                            <td>
+                                                <div class="@(item.Status ? "badge badge-outline-success" : "badge badge-outline-danger")">
+                                                    @(item.Status ? "Tamamlandı" : "Devam Ediyor")
+                                                </div>
+                                            </td>
+
+                                            <td> @item.ProjectUrl </td>
+                                            <td> <a href="/Portfolio/EditPortfolio/@item.PortfolioId"> <div class="btn btn-warning"> Detayları Gör</div></a> </td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </body>
+</html>
