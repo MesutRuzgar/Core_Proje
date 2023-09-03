@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Core_Proje_Api
+namespace Core_Proje_API
 {
     public class Program
     {
@@ -24,8 +24,8 @@ namespace Core_Proje_Api
             .UseServiceProviderFactory(new AutofacServiceProviderFactory())
             .ConfigureContainer<ContainerBuilder>(builder =>
             {
-                builder.RegisterModule(new AutofacBusinessModule());
-            })
+               builder.RegisterModule(new AutofacBusinessModule());
+            }) 
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();

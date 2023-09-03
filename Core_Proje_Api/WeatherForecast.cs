@@ -1,6 +1,6 @@
 using System;
 
-namespace Core_Proje_Api
+namespace Core_Proje_API
 {
     public class WeatherForecast
     {

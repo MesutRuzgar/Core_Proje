@@ -12,7 +12,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Core_Proje_Api
+namespace Core_Proje_API
 {
     public class Startup
     {
@@ -28,10 +28,9 @@ namespace Core_Proje_Api
         {
 
             services.AddControllers();
-
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Core_Proje_Api", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Core_Proje_API", Version = "v1" });
             });
         }
 
@@ -42,7 +41,7 @@ namespace Core_Proje_Api
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Core_Proje_Api v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Core_Proje_API v1"));
             }
 
             app.UseHttpsRedirection();

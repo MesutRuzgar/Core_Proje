@@ -9,41 +9,41 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
-    public class FeatureManager : IGenericService<Feature>
+    public class FeatureManager : IFeatureService
     {
         //constructor method unutma!!
-        IFeatureDal _featureDaL;
+        IFeatureDal _featureDal;
 
-        public FeatureManager(IFeatureDal featureDaL)
+        public FeatureManager(IFeatureDal featureDal)
         {
-            _featureDaL = featureDaL;
+            _featureDal = featureDal;
         }
 
         public void TAdd(Feature t)
         {
-            _featureDaL.Insert(t);
+            _featureDal.Insert(t);
         }
 
         public void TDelete(Feature t)
         {
-            _featureDaL.Delete(t);
+            _featureDal.Delete(t);
         }
 
         public Feature TGetById(int id)
         {
-            return _featureDaL.GetById(id);
+            return _featureDal.GetById(id);
         }
 
         public List<Feature> TGetList()
         {
-            return _featureDaL.GetList();
+            return _featureDal.GetList();
         }
 
       
 
         public void TUpdate(Feature t)
         {
-            _featureDaL.Update(t);
+            _featureDal.Update(t);
         }
     }
 }
