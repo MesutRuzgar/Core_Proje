@@ -7,34 +7,24 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<body>
-    <div class="container-fluid">
+<body>    
         <div class="row">
             <!-- 1. Satır -->
-            <div class="col-xl-12">
+            <div class="col-md-12">
                 @await Component.InvokeAsync("FeatureStatistics")
             </div>
           
         </div>
-
         <!-- 2. Satır -->
         <div class="row">
             <!-- 4. Sütun - L Harfi Düzeni -->
             <div class="col-md-9">
                 @await Component.InvokeAsync("ProjectList")
             </div>
-            <div class="col-xl-3">
+            <div class="col-md-3">
                 @await Component.InvokeAsync("StatisticsDashboard2")
             </div>
-        </div>
-    </div>
-
-
-    @*@await Component.InvokeAsync("FeatureStatistics")
-
-    @await Component.InvokeAsync("StatisticsDashboard2")
-
-    @await Component.InvokeAsync("ProjectList")*@
+        </div> 
 
     <div class="row">
 
