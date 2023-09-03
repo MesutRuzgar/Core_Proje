@@ -179,7 +179,8 @@ namespace Core_Proje.Controllers
                     }
 
                     portfolioManager.TUpdate(existingPortfolio);
-                    return RedirectToAction("Index");
+                    return Redirect("/Portfolio/EditPortfolio/"+viewModel.PortfolioId);
+
                 }
                 else
                 {
