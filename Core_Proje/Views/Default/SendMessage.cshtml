@@ -21,26 +21,3 @@
     </div>
 </div>
 
-
-@section Scripts2
-{
-    <script>
-        $("#btnsend").click(function () {
-            let values = {
-                Name: $("#inpname").val(),
-                Mail: $("#inpemail").val(),
-                Contact: $("#inpmessage").val()
-            };
-            $.ajax({
-                type: "Post",
-                url: "/Default/SendMessageAjax/",
-                data: values,
-                success: function (response) {
-                   /* console.log(response);*/
-                    alert("Mesaj başarıyla gönderildi");
-                }
-            });
-        });
-    </script>
-}
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
