@@ -42,6 +42,7 @@ namespace Core_Proje.Controllers
 
 
         //mesaj gonderme islemleri icin yaptık yeni partialleri olusturduk
+        [AllowAnonymous]
         [HttpGet]
         public PartialViewResult SendMessage()
         {
@@ -61,6 +62,7 @@ namespace Core_Proje.Controllers
         //    messageManager.TAdd(p);
         //    return PartialView();
         //}
+        [AllowAnonymous]
         [HttpPost]
         public IActionResult SendMessageAjax(Message p)
         {

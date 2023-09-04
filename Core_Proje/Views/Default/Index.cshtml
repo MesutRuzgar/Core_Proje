@@ -85,35 +85,25 @@
     <script src="~/Template/scripts/main.js?ver=1.2.0"></script>
 
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $("#btnsend").click(function () {
-            // Form alanlarını alın
-            let name = $("#inpname").val().trim();
-            let email = $("#inpemail").val().trim();
-            let message = $("#inpmessage").val().trim();
 
-            // Boş alan kontrolü yapın
-            if (name === "" || email === "" || message === "") {
-                alert("Lütfen tüm alanları doldurun.");
-                return; // Göndermeyi durdur
-            }
-
-            let values = {
-                Name: name,
-                Mail: email,
-                Content: message
-            };
-
+   
+        <script>
+            $("#btnsend").click(function () {
+                let values = {
+                Name: $("#inpname").val(),
+            Mail: $("#inpemail").val(),
+            Content: $("#inpmessage").val()
+                };
             $.ajax({
                 type: "Post",
-                url: "/Default/SendMessageAjax/",
-                data: values,
-                success: function (response) {
-                    alert("Mesaj başarıyla gönderildi");
-                }
+            url: "/Default/SendMessageAjax/",
+            data: values,
+            success: function (response) {
+
+                alert("Mesaj başarıyla gönderildi");
+                    }
+                });
             });
-        });
     </script>
 
 
