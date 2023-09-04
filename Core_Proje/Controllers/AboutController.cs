@@ -67,7 +67,7 @@ namespace Core_Proje.Controllers
             values.Title = p.Title;
             aboutManager.TUpdate(values);
             //default eklememizin sebebi default indexte calisacaz surekli
-            return RedirectToAction("Index", "Default");
+            return RedirectToAction("Index", "About");
         }
     }
 }
