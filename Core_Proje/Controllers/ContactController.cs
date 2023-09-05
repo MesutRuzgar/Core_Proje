@@ -15,7 +15,8 @@ namespace Core_Proje.Controllers
         MessageManager messageManager = new MessageManager(new EfMessageDal());
         public IActionResult Index()
         {
-            var values = messageManager.TGetList();
+            var values = messageManager.TGetList().OrderByDescending(x => x.Date)
+        .ToList(); ;
             return View(values);
         }
         public IActionResult DeleteContact(int id)

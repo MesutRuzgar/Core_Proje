@@ -21,7 +21,9 @@ namespace Core_Proje.Controllers
             string p;
             p = "deneme@deneme.com";
             var values = writerMessageManager.GetListReceiverMessage(p);
-            List<UserMessageViewModel> messageReceiverViewModels = ViewMessage(values);
+            List<UserMessageViewModel> messageReceiverViewModels = ViewMessage(values).OrderByDescending(x => x.Date)
+        .ToList();
+            ;
             return View(messageReceiverViewModels);
         }
 
@@ -30,7 +32,8 @@ namespace Core_Proje.Controllers
             string p;
             p = "deneme@deneme.com";
             var values = writerMessageManager.GetListSenderMessage(p);
-            List<UserMessageViewModel> messageSenderViewModels = ViewSenderMessage(values);
+            List<UserMessageViewModel> messageSenderViewModels = ViewSenderMessage(values).OrderByDescending(x => x.Date)
+        .ToList();
             return View(messageSenderViewModels);
 
         }
